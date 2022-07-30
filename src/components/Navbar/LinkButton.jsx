@@ -1,7 +1,7 @@
 import { Box } from '@chakra-ui/react';
 import NextLink from 'next/link';
 
-export default function LinkButton({ title, href }) {
+export default function LinkButton({ title, href, ...otherProps }) {
   return (
     <Box
       position="relative"
@@ -31,6 +31,7 @@ export default function LinkButton({ title, href }) {
         boxShadow: 'dark-lg',
         transition: 'all 0.2s cubic-bezier(.08,.52,.52,1)'
       }}
+      {...otherProps}
     >
       <NextLink href={href}>
         {title}

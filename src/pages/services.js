@@ -4,11 +4,11 @@ import CustomCard from '@components/CustomCard';
 import FORMATIONS from '@data/formations';
 import Fade from 'react-reveal/Fade';
 
-export default function Formations() {
+export default function Services() {
   return (
     <Box px={10}>
       <Fade left>
-        <CustomHeading title={'Formations'} mb={20} />
+        <CustomHeading title={'Services'} mb={20} />
       </Fade>
 
       <SimpleGrid minChildWidth="400px" spacing={10}>

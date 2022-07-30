@@ -8,18 +8,22 @@ import {
   VisuallyHidden,
   chakra,
   useColorModeValue,
-  Input
+  Input,
+  HStack,
+  Button,
+  Flex
 } from '@chakra-ui/react';
+import LinkButton from '@components/Navbar/LinkButton';
 import { FaTwitter, FaYoutube, FaInstagram } from 'react-icons/fa';
 
-
-const ListHeader = ({ children }) => {
+const ListHeader = ({ children, ...otherProps }) => {
   return (
-    <Text fontWeight={'500'} fontSize={'lg'} mb={2}>
+    <Text fontWeight={'500'} fontSize={'lg'} mb={2} {...otherProps}>
       {children}
     </Text>
   );
 };
+
 
 const SocialButton = ({ children, label, href }) => {
   return (
@@ -47,38 +51,71 @@ const SocialButton = ({ children, label, href }) => {
 
 export default function LargeWithAppLinksAndSocial() {
   return (
-    <Box
-      bg="#052345"
-      color="teal.200"
-    >
-      <Container as={Stack} maxW={'6xl'} py={10}>
+    <Box bg="#052345" color="teal.200">
+      <Container as={Stack} maxW={'9xl'} py={10} px={20}>
         <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={10}>
           <Stack align={'flex-start'}>
-            <ListHeader>Company</ListHeader>
-            <Link href={'#'}>About Us</Link>
-            <Link href={'#'}>Blog</Link>
-            <Link href={'#'}>Careers</Link>
-            <Link href={'#'}>Contact Us</Link>
+            <ListHeader color="green.400">Hr Consultin & Co</ListHeader>
+            <Text>
+              Est un cabinet de recrutement, de formation, de conseil et de
+              gestion des ressources humaines.
+            </Text>
           </Stack>
 
           <Stack align={'flex-start'}>
-            <ListHeader>Support</ListHeader>
-            <Link href={'#'}>Help Center</Link>
-            <Link href={'#'}>Safety Center</Link>
-            <Link href={'#'}>Community Guidelines</Link>
+            <ListHeader>Infomations</ListHeader>
+            <Text>
+              ABIDJAN - Marcory 1er étage à droite lot 36 Avenue TSF en face de
+              la SIB Ste Thérèse
+            </Text>
+            <Text>Tel: (+255) 20 00 09 47</Text>
+            <Text>Tel: (+255) 21 26 94 06</Text>
+            <Text>Tel: (+255) 02 91 62 90</Text>
+            <Text>E-mail: secretariat@hrconsultingco.ci</Text>
           </Stack>
 
           <Stack align={'flex-start'}>
-            <ListHeader>Legal</ListHeader>
-            <Link href={'#'}>Cookies Policy</Link>
-            <Link href={'#'}>Privacy Policy</Link>
-            <Link href={'#'}>Terms of Service</Link>
-            <Link href={'#'}>Law Enforcement</Link>
+            <ListHeader>Acceuil</ListHeader>
+            <LinkButton
+              href="about"
+              title="A propos"
+              color="none"
+              fontWeight="normal"
+            />
+            <LinkButton
+              href="services"
+              title="Services"
+              color="none"
+              fontWeight="normal"
+            />
+            <LinkButton
+              href="formations"
+              title="Formations"
+              color="none"
+              fontWeight="normal"
+            />
+            <LinkButton
+              href="news"
+              title="Actualités"
+              color="none"
+              fontWeight="normal"
+            />
           </Stack>
 
           <Stack align={'flex-start'}>
-            <ListHeader>Rejoindre Notre Newsteller</ListHeader>
-            <Input type="email" variant="filled" placeholder='Type your email here' />
+            <ListHeader>Rejoindre Notre Newsletter</ListHeader>
+            <Flex dir="row">
+              <Input
+                size="lg"
+                borderRightRadius={0}
+                type="email"
+                variant="filled"
+                placeholder="Adresse mail"
+              />
+              <Button size="lg" borderLeftRadius={0} colorScheme="green">
+                S'abonner
+              </Button>
+            </Flex>
           </Stack>
         </SimpleGrid>
       </Container>

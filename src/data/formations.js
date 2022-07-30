@@ -16,5 +16,11 @@ export default [
     },
     {
         title: 'Management et developpement des personnel',
+    },
+    {
+        title: 'Management et developpement des personnel',
+    },
+    {
+        title: 'Management et developpement des personnel',
     }
 ];
