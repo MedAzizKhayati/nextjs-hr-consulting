@@ -1,6 +1,6 @@
 import { Heading } from "@chakra-ui/react";
 
-export default function CustomHeading({title, lineWidth = 70}) {
+export default function CustomHeading({title, lineWidth = 70, ...otherProps}) {
   return (
     <Heading
         color="blue.900"
@@ -20,6 +20,7 @@ export default function CustomHeading({title, lineWidth = 70}) {
           boxShadow: 'rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.5) 0px 2px 5px',
           transition: 'all 0.2s cubic-bezier(.08,.52,.52,1)'
         }}
+        {...otherProps}
       >
         {title}
       </Heading>
