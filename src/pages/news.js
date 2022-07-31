@@ -4,11 +4,11 @@ import SERVICES from '@data/services';
 import Fade from 'react-reveal/Fade';
 import ServiceCard from '@components/ServiceCard';
 
-export default function Services() {
+export default function News() {
   return (
     <Box px={10}>
       <Fade left>
-        <CustomHeading title={'Services'} mb={20} />
+        <CustomHeading title={'News'} mb={20} />
       </Fade>
 
       <Box>

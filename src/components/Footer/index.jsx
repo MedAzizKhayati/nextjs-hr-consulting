@@ -53,7 +53,7 @@ export default function LargeWithAppLinksAndSocial() {
   return (
     <Box bg="#052345" color="teal.200">
       <Container as={Stack} maxW={'9xl'} py={10} px={20}>
-        <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={10}>
+        <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={10}>
           <Stack align={'flex-start'}>
             <ListHeader color="green.400">Hr Consultin & Co</ListHeader>
             <Text>
@@ -104,7 +104,7 @@ export default function LargeWithAppLinksAndSocial() {
 
           <Stack align={'flex-start'}>
             <ListHeader>Rejoindre Notre Newsletter</ListHeader>
-            <Flex dir="row">
+            <Flex>
               <Input
                 size="lg"
                 borderRightRadius={0}

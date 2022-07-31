@@ -33,7 +33,7 @@ export default function blogPostWithImage({ title }) {
               fontSize={'sm'}
               letterSpacing={1.1}
             >
-              Offer
+              Offre
             </Text>
             <Heading fontSize={'2xl'} fontFamily={'body'} textAlign="center">
               {title}
