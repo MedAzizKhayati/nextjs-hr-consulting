@@ -9,7 +9,7 @@ import {
 import CustomHeading from '@components/CustomHeading';
 import Fade from 'react-reveal/Fade';
 
-export default function ServiceCard({ title, reverse = false, ...otherProps }) {
+export default function   ServiceCard({ title, reverse = false, ...otherProps }) {
   return (
     <Fade right={!reverse} left={!!reverse}>
       <SimpleGrid
