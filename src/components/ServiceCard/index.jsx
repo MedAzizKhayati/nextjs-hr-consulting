@@ -42,10 +42,9 @@ export default function ServiceCard({ title, reverse = false, ...otherProps }) {
         <Flex
           h={400}
           flexDir="column"
-          justifyContent="space-between"
+          justifyContent={{ base: 'flex-start', lg: 'space-between' }}
           alignItems={{ base: 'center', lg: 'flex-start' }}
           fontSize="2xl"
-          flex={1}
           order={{ lg: reverse ? -1 : 1 }}
         >
           <CustomHeading
@@ -54,7 +53,7 @@ export default function ServiceCard({ title, reverse = false, ...otherProps }) {
             lineWidth={100}
             display={{ base: 'none', lg: 'block' }}
           />
-          <Text>
+          <Text mb={10} fontSize={{ base: 'xl', md: '2xl' }}>
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
             nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
             erat, sed diam voluptua. At vero eos et accusam et justo duo dolores

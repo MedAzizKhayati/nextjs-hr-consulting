@@ -1,7 +1,6 @@
 import {
   Box,
   Button,
-  Center,
   Flex,
   Heading,
   HStack,
@@ -10,6 +9,7 @@ import {
   Text
 } from '@chakra-ui/react';
 import SimpleCard from '@components/SimpleCard';
+import NextLink from 'next/link';
 import Fade from 'react-reveal/Fade';
 import Zoom from 'react-reveal/Zoom';
 import WELCOME_SERVICES from '@data/welcome-services';
@@ -47,32 +47,36 @@ export default function Home() {
               Agrement agence <br /> Emploi jeunes
             </Heading>
             <HStack>
-              <Button
-                color="blue.900"
-                size="lg"
-                fontSize={['xl', '3xl']}
-                fontWeight="bold"
-                borderRadius="full"
-                colorScheme="green"
-                mx="20px"
-                my={15}
-                p={['25px', '35px', '45px']}
-              >
-                CONTACT
-              </Button>
-              <Button
-                color="blue.900"
-                size="lg"
-                fontSize={['xl', '3xl']}
-                fontWeight="bold"
-                borderRadius="full"
-                colorScheme="green"
-                mx="20px"
-                my={15}
-                p={['25px', '35px', '45px']}
-              >
-                SERVICES
-              </Button>
+              <NextLink href="/contact">
+                <Button
+                  color="blue.900"
+                  size="lg"
+                  fontSize={['xl', '3xl']}
+                  fontWeight="bold"
+                  borderRadius="full"
+                  colorScheme="green"
+                  mx="20px"
+                  my={15}
+                  p={['25px', '35px', '45px']}
+                >
+                  CONTACT
+                </Button>
+              </NextLink>
+              <NextLink href="/services">
+                <Button
+                  color="blue.900"
+                  size="lg"
+                  fontSize={['xl', '3xl']}
+                  fontWeight="bold"
+                  borderRadius="full"
+                  colorScheme="green"
+                  mx="20px"
+                  my={15}
+                  p={['25px', '35px', '45px']}
+                >
+                  SERVICES
+                </Button>
+              </NextLink>
             </HStack>
           </Box>
         </Fade>
@@ -169,9 +173,7 @@ export default function Home() {
         <Heading color="blue.600" size="sm" textAlign="center">
           97% DE NOS CLIENTS SONT SATISFAITS
         </Heading>
-        <Flex>
-           {/* TODO: Add testimonials */}
-        </Flex>
+        <Flex>{/* TODO: Add testimonials */}</Flex>
       </Flex>
 
       {/* Statistics Section */}
@@ -187,7 +189,7 @@ export default function Home() {
 
         <SimpleGrid columns={[1, 1, 1, 3]} spacing={10} px={10}>
           {STATISTICS_DATA.map((statistic) => (
-            <VisibilitySensor partialVisibility>
+            <VisibilitySensor key={statistic.description} partialVisibility>
               {({ isVisible }) => (
                 <Zoom>
                   <Flex
@@ -250,17 +252,19 @@ export default function Home() {
           >
             Pour Plus De Renseignement veuillez Déposer votre CV ici
           </Heading>
-          <Button
-            borderRadius="full"
-            size="lg"
-            fontSize={['md', 'xl', 'xl', '2xl']}
-            fontWeight="normal"
-            p={['15', '19', '25', '35']}
-            color="white"
-            colorScheme="green"
-          >
-            Deposer un CV
-          </Button>
+          <NextLink href="/send-resume">
+            <Button
+              borderRadius="full"
+              size="lg"
+              fontSize={['md', 'xl', 'xl', '2xl']}
+              fontWeight="normal"
+              p={['15', '19', '25', '35']}
+              color="white"
+              colorScheme="green"
+            >
+              Deposer un CV
+            </Button>
+          </NextLink>
         </Flex>
       </Flex>
     </Box>

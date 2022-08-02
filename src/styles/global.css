@@ -5,7 +5,8 @@ body {
 }
 
 #__next {
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
+    contain: paint;
     font-family: 'Poppins', sans-serif !important;
 }
 

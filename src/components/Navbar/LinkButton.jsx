@@ -28,7 +28,7 @@ export default function LinkButton({ title, href, ...otherProps }) {
         borderRadius: '2px',
         left: 0,
         bottom: 0,
-        boxShadow: 'dark-lg',
+        // boxShadow: 'dark-lg',
         transition: 'all 0.2s cubic-bezier(.08,.52,.52,1)'
       }}
       {...otherProps}
