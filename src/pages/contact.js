@@ -1,16 +1,11 @@
 import { Center, Image } from '@chakra-ui/react';
 import ContactForm from '@components/ContactForm';
+import MessageBackground from '@components/MessageBackground';
 
 export default function Contact() {
   return (
     <Center pos="relative">
-      <Image
-        zIndex={-1}
-        pos="absolute"
-        src="/message-background.png"
-        left="-40%"
-        top="-100px"
-      />
+      <MessageBackground />
       <ContactForm mb={40} />
     </Center>
   );
