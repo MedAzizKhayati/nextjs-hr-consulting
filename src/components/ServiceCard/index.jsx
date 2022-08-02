@@ -9,7 +9,7 @@ import {
 import CustomHeading from '@components/CustomHeading';
 import Fade from 'react-reveal/Fade';
 
-export default function   ServiceCard({ title, reverse = false, ...otherProps }) {
+export default function ServiceCard({ title, reverse = false, ...otherProps }) {
   return (
     <Fade right={!reverse} left={!!reverse}>
       <SimpleGrid
@@ -19,9 +19,16 @@ export default function   ServiceCard({ title, reverse = false, ...otherProps })
         my={40}
         {...otherProps}
       >
+        <CustomHeading
+          justifySelf="center"
+          fontSize="5xl"
+          title={title}
+          lineWidth={100}
+          display={{ base: 'block', lg: 'none' }}
+        />
         <Flex
           flex={1}
-          justifyContent="flex-start"
+          justifyContent={{ base: 'center', lg: 'flex-start' }}
           pos="relative"
         >
           <Image
@@ -36,12 +43,17 @@ export default function   ServiceCard({ title, reverse = false, ...otherProps })
           h={400}
           flexDir="column"
           justifyContent="space-between"
-          alignItems="flex-start"
+          alignItems={{ base: 'center', lg: 'flex-start' }}
           fontSize="2xl"
           flex={1}
           order={{ lg: reverse ? -1 : 1 }}
         >
-          <CustomHeading fontSize="5xl" title={title} lineWidth={100} />
+          <CustomHeading
+            fontSize="5xl"
+            title={title}
+            lineWidth={100}
+            display={{ base: 'none', lg: 'block' }}
+          />
           <Text>
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
             nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam

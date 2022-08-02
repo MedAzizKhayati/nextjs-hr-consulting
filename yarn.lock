@@ -984,6 +984,11 @@ cosmiconfig@^7.0.0:
     path-type "^4.0.0"
     yaml "^1.10.0"
 
+countup.js@^2.2.0:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/countup.js/-/countup.js-2.3.2.tgz#9a91d95780be1c908d1e6feb548625f353f57988"
+  integrity sha512-dQ7F/CmKGjaO6cDfhtEXwsKVlXIpJ89dFs8PvkaZH9jBVJ2Z8GU4iwG/qP7MgY8qwr+1skbwR6qecWWQLUzB8Q==
+
 css-box-model@1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/css-box-model/-/css-box-model-1.2.1.tgz#59951d3b81fd6b2074a62d49444415b0d2b4d7c1"
@@ -1251,6 +1256,13 @@ react-clientside-effect@^1.2.5:
   dependencies:
     "@babel/runtime" "^7.12.13"
 
+react-countup@^6.3.0:
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/react-countup/-/react-countup-6.3.0.tgz#9a345674d571f76c1046a0ded89fc86dbe52a2f0"
+  integrity sha512-uZsE+kuisXp/3OZeAuq2lzp6sXKmzw331Et5CRy4ueR9VcOp7z7T6/O1F04BC2Pa2frKmIITsghi3Hh933qWXQ==
+  dependencies:
+    countup.js "^2.2.0"
+
 react-dom@^18.2.0:
   version "18.2.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-18.2.0.tgz#22aaf38708db2674ed9ada224ca4aa708d821e3d"
@@ -1320,6 +1332,13 @@ react-style-singleton@^2.1.0, react-style-singleton@^2.2.1:
     get-nonce "^1.0.0"
     invariant "^2.2.4"
     tslib "^2.0.0"
+
+react-visibility-sensor@^5.1.1:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/react-visibility-sensor/-/react-visibility-sensor-5.1.1.tgz#5238380960d3a0b2be0b7faddff38541e337f5a9"
+  integrity sha512-cTUHqIK+zDYpeK19rzW6zF9YfT4486TIgizZW53wEZ+/GPBbK7cNS0EHyJVyHYacwFEvvHLEKfgJndbemWhB/w==
+  dependencies:
+    prop-types "^15.7.2"
 
 react@^18.2.0:
   version "18.2.0"

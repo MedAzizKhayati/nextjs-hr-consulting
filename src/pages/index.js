@@ -14,7 +14,8 @@ import Fade from 'react-reveal/Fade';
 import Zoom from 'react-reveal/Zoom';
 import WELCOME_SERVICES from '@data/welcome-services';
 import HOME_SERVICES from '@data/home-services';
-import CustomHeading from '@components/CustomHeading';
+import CountUp from 'react-countup';
+import VisibilitySensor from 'react-visibility-sensor';
 
 export default function Home() {
   return (
@@ -139,7 +140,12 @@ export default function Home() {
 
       {/* Services Section */}
       <Flex flexDir="column">
-        <Heading fontSize="7xl" color="blue.900" textAlign="center" my={40}>
+        <Heading
+          fontSize={{ base: '5xl', md: '6xl', lg: '7xl' }}
+          color="blue.900"
+          textAlign="center"
+          my={40}
+        >
           NOS SERVICES
         </Heading>
 
@@ -156,37 +162,62 @@ export default function Home() {
       </Flex>
 
       {/* Testimonials Section */}
+      <Flex flexDir="column" mb={40}>
+        <Heading color="blue.900" size="3xl" textAlign="center">
+          TÉMOIGNAGES
+        </Heading>
+        <Heading color="blue.600" size="sm" textAlign="center">
+          97% DE NOS CLIENTS SONT SATISFAITS
+        </Heading>
+        <Flex>
+           {/* TODO: Add testimonials */}
+        </Flex>
+      </Flex>
 
       {/* Statistics Section */}
       <Flex mb={40} alignItems="center" flexDir="column">
         <Zoom>
           <Flex mb={20} alignItems="center" flexDir="column">
-            <CustomHeading lineWidth={0} title="HR CONSULTING & CO" />
+            <Heading color="blue.900" size="3xl" textAlign="center">
+              HR CONSULTING & CO
+            </Heading>
             <Heading color="green.400">En quelques chiffres</Heading>
           </Flex>
         </Zoom>
+
         <SimpleGrid columns={[1, 1, 1, 3]} spacing={10} px={10}>
           {STATISTICS_DATA.map((statistic) => (
-            <Zoom>
-              <Flex
-                p={20}
-                flexDir="column"
-                alignItems="center"
-                justifyContent="center"
-                bg="green.600"
-                borderRadius="3xl"
-                boxShadow="dark-lg"
-                h={350}
-                maxW={450}
-              >
-                <Heading fontSize="5xl" color="blue.900">
-                  {statistic.numbers}
-                </Heading>
-                <Text textAlign="center" fontSize="lg" color="white">
-                  {statistic.description}
-                </Text>
-              </Flex>
-            </Zoom>
+            <VisibilitySensor partialVisibility>
+              {({ isVisible }) => (
+                <Zoom>
+                  <Flex
+                    p={20}
+                    flexDir="column"
+                    alignItems="center"
+                    justifyContent="center"
+                    bg="green.600"
+                    borderRadius="3xl"
+                    boxShadow="dark-lg"
+                    h={350}
+                    maxW={450}
+                  >
+                    <Heading fontSize="5xl" color="blue.900">
+                      {isVisible ? (
+                        <CountUp
+                          end={statistic.numbers}
+                          duration={1 + Math.random() * 2}
+                        />
+                      ) : (
+                        0
+                      )}
+                    </Heading>
+                    <Text textAlign="center" fontSize="lg" color="white">
+                      {statistic.description}
+                    </Text>
+                  </Flex>
+                </Zoom>
+              )}
+            </VisibilitySensor>
           ))}
         </SimpleGrid>
       </Flex>
@@ -202,9 +233,9 @@ export default function Home() {
           zIndex={-1}
         />
         <Flex
-          p={20}
+          p={55}
           w="80%"
-          flexDir={['column', 'column', 'column', 'row']}
+          flexDir={{ xl: 'row', base: 'column' }}
           bg="white"
           borderRadius="2xl"
           alignItems="center"
@@ -212,17 +243,19 @@ export default function Home() {
         >
           <Heading
             color="blue.900"
-            fontSize={['2xl', '4xl', '4xl', '4xl']}
-            pr={20}
+            fontSize={['2xl', '2xl', '2xl', '4xl']}
+            pr={{ lg: 20 }}
+            pb={25}
+            textAlign={{ md: 'center', base: 'center' }}
           >
             Pour Plus De Renseignement veuillez Déposer votre CV ici
           </Heading>
           <Button
             borderRadius="full"
             size="lg"
-            fontSize={['xl', '3xl', '3xl', '3xl']}
+            fontSize={['md', 'xl', 'xl', '2xl']}
             fontWeight="normal"
-            p={55}
+            p={['15', '19', '25', '35']}
             color="white"
             colorScheme="green"
           >

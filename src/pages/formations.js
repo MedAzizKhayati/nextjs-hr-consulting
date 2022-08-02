@@ -11,7 +11,7 @@ export default function Formations() {
         <CustomHeading title={'Formations'} mb={20} />
       </Fade>
 
-      <SimpleGrid minChildWidth="400px" spacing={10}>
+      <SimpleGrid minChildWidth={{ base: 300, md: '400px' }} spacing={10}>
         {FORMATIONS.map((formation, index) => (
           <CustomCard key={index} title={formation.title} />
         ))}

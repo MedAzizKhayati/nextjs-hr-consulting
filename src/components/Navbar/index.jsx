@@ -7,11 +7,11 @@ import {
   useDisclosure,
   Collapse,
   Stack,
-  Link,
-  Text,
-  IconButton
+  IconButton,
+  Center
 } from '@chakra-ui/react';
 import { AiOutlineUser } from 'react-icons/ai';
+import NextLink from 'next/link';
 import LINKS from './links';
 import LinkButton from './LinkButton';
 import Fade from 'react-reveal/Fade';
@@ -21,16 +21,27 @@ export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
-    <Fade top>
-      <Box mb={125} pos="relative">
-        <Flex h={150} px={50} align="center" justifyContent="space-between">
-          <Box>
-            <Image src="/logo.png" alt="Hr Consulting Logo" />
-          </Box>
+    <Fade top style="position: sticky">
+      <Box mb={125}>
+        <Flex h={125} px={50} align="center" justifyContent="space-between">
+          <Flex
+            boxSize={{ base: '75px', md: '125px' }}
+            objectFit="cover"
+            alignItems="center"
+          >
+            <NextLink href="/">
+              <Image
+                transition="all 0.25s ease-in-out"
+                _hover={{ cursor: 'pointer', transform: 'scale(1.05)' }}
+                src="/logo.png"
+                alt="Hr Consulting Logo"
+              />
+            </NextLink>
+          </Flex>
           <Flex
             justifyContent="flex-end"
             align="center"
-            display={{ base: 'none', lg: 'flex' }}
+            display={{ base: 'none', xl: 'flex' }}
           >
             {LINKS.map((link) => (
               <LinkButton title={link.name} href={link.href} key={link.name} />
@@ -65,7 +76,7 @@ export default function Navbar() {
             </Box>
           </Flex>
 
-          <Flex display={{ base: 'flex', lg: 'none' }}>
+          <Flex display={{ base: 'flex', xl: 'none' }}>
             <IconButton
               onClick={onToggle}
               icon={
@@ -75,8 +86,8 @@ export default function Navbar() {
                   <HamburgerIcon w={5} h={5} />
                 )
               }
-              variant={'ghost'}
               aria-label={'Toggle Navigation'}
+              colorScheme="green"
             />
           </Flex>
         </Flex>
@@ -96,13 +107,24 @@ const MobileNav = () => {
       borderColor="rgba(0,0,0,0.3)"
       pb={10}
       mb={5}
-      // mx="10%"
-      display={{ lg: 'none', base: 'block' }}
+      display={{ xl: 'none', base: 'flex' }}
       boxShadow="lg"
     >
       {LINKS.map((navItem) => (
         <MobileNavItem key={navItem.name} {...navItem} />
       ))}
+      <Center>
+        <Button
+          colorScheme="green"
+          borderRadius={30}
+          _hover={{
+            transform: 'scale(1.02)',
+            boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.5)'
+          }}
+        >
+          Deposer un CV
+        </Button>
+      </Center>
     </Stack>
   );
 };

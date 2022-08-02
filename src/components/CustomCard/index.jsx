@@ -6,7 +6,7 @@ export default function blogPostWithImage({ title }) {
     <Center py={6}>
       <Zoom>
         <Box
-          maxW={'400px'}
+          maxW={{ base: 300, md: '400px' }}
           w="full"
           boxShadow="xl"
           bg="white"
@@ -20,9 +20,20 @@ export default function blogPostWithImage({ title }) {
             cursor: 'pointer'
           }}
         >
-          <Box bg={'gray.200'} minH={250} mt={-6} mx={-6} mb={6} pos={'relative'}>
+          <Box
+            h={{ base: 150, md: 250 }}
+            objectFit="cover"
+            overflow="hidden"
+            mt={-6}
+            mx={-6}
+            mb={6}
+            pos={'relative'}
+          >
             <Image
-              src={"https://picsum.photos/400/" + Math.floor(Math.random() * 30 + 250) }
+              src={
+                'https://picsum.photos/400/' +
+                Math.floor(Math.random() * 30 + 250)
+              }
             />
           </Box>
           <Stack>
