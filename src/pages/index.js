@@ -195,28 +195,37 @@ export default function Home() {
           </Button>
         </Flex>
         <Flex
-          flexDir={{base: 'column', md: 'column',lg:'column', xl:'row'}}
-          alignItems={{ base: 'center', md: 'center', lg: "center", xl:"flex-start" }}
+          flexDir={{ base: 'column', md: 'column', lg: 'column', xl: 'row' }}
+          alignItems={{
+            base: 'center',
+            md: 'center',
+            lg: 'center',
+            xl: 'flex-start'
+          }}
           justifyContent="space-between"
         >
           {NEWS.slice(0, 2).map((news) => (
-            <NewsCard {...{ news }} mb={10} />
+            <Zoom>
+              <NewsCard {...{ news }} mb={10} />
+            </Zoom>
           ))}
-          <Box mb={10}>
-            {NEWS.slice(2, 6).map((news, index) => (
-              <>
-                <SmallNewsCard key={index} {...{ news }} mb={5} mx={15} />
-                <Box
-                  h="2px"
-                  bg="green.200"
-                  opacity={0.5}
-                  mb={5}
-                  mx={15}
-                  borderRadius="full"
-                />
-              </>
-            ))}
-          </Box>
+          <Fade right>
+            <Box mb={10}>
+              {NEWS.slice(2, 6).map((news, index) => (
+                <>
+                  <SmallNewsCard key={index} {...{ news }} mb={5} mx={15} />
+                  <Box
+                    h="2px"
+                    bg="green.200"
+                    opacity={0.5}
+                    mb={5}
+                    mx={15}
+                    borderRadius="full"
+                  />
+                </>
+              ))}
+            </Box>
+          </Fade>
         </Flex>
       </Box>
 
