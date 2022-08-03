@@ -1,21 +1,27 @@
 import {
   Box,
   Button,
+  Divider,
   Flex,
   Heading,
   HStack,
   Image,
   SimpleGrid,
-  Text
+  Text,
+  VStack
 } from '@chakra-ui/react';
 import SimpleCard from '@components/SimpleCard';
 import NextLink from 'next/link';
 import Fade from 'react-reveal/Fade';
 import Zoom from 'react-reveal/Zoom';
-import WELCOME_SERVICES from '@data/welcome-services';
-import HOME_SERVICES from '@data/home-services';
 import CountUp from 'react-countup';
 import VisibilitySensor from 'react-visibility-sensor';
+
+import WELCOME_SERVICES from '@data/welcome-services';
+import HOME_SERVICES from '@data/home-services';
+import NEWS from '@data/news';
+import NewsCard from '@components/NewsCard';
+import SmallNewsCard from '@components/SmallNewsCard';
 
 export default function Home() {
   return (
@@ -123,14 +129,16 @@ export default function Home() {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
               eget nisl velit.
             </Text>
-            <Button
-              fontWeight="light"
-              colorScheme="green"
-              p={25}
-              borderRadius="full"
-            >
-              CONTACTER
-            </Button>
+            <NextLink href="/contact">
+              <Button
+                fontWeight="light"
+                colorScheme="green"
+                p={25}
+                borderRadius="sm"
+              >
+                CONTACTER
+              </Button>
+            </NextLink>
           </Box>
         </Fade>
         <Image
@@ -175,6 +183,42 @@ export default function Home() {
         </Heading>
         <Flex>{/* TODO: Add testimonials */}</Flex>
       </Flex>
+
+      {/* News Section */}
+      <Box px={[15, 20]}>
+        <Flex justifyContent="space-between" mb={10}>
+          <Heading color="blue.900" fontSize="4xl">
+            ACTUALITÉS
+          </Heading>
+          <Button size="lg" fontSize="xl" colorScheme="green" borderRadius="sm">
+            Voir Plus
+          </Button>
+        </Flex>
+        <Flex
+          flexDir={{base: 'column', md: 'column',lg:'column', xl:'row'}}
+          alignItems={{ base: 'center', md: 'center', lg: "center", xl:"flex-start" }}
+          justifyContent="space-between"
+        >
+          {NEWS.slice(0, 2).map((news) => (
+            <NewsCard {...{ news }} mb={10} />
+          ))}
+          <Box mb={10}>
+            {NEWS.slice(2, 6).map((news, index) => (
+              <>
+                <SmallNewsCard key={index} {...{ news }} mb={5} mx={15} />
+                <Box
+                  h="2px"
+                  bg="green.200"
+                  opacity={0.5}
+                  mb={5}
+                  mx={15}
+                  borderRadius="full"
+                />
+              </>
+            ))}
+          </Box>
+        </Flex>
+      </Box>
 
       {/* Statistics Section */}
       <Flex mb={40} alignItems="center" flexDir="column">

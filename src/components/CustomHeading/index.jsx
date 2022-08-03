@@ -7,6 +7,7 @@ export default function CustomHeading({title, lineWidth = 70, ...otherProps}) {
         size="4xl"
         pos='relative'
         width='max-content'
+        
         py={2}
         _after={{
           content: `''`,

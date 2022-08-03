@@ -16,18 +16,48 @@ import LINKS from './links';
 import LinkButton from './LinkButton';
 import Fade from 'react-reveal/Fade';
 import { Fade as Hamburger } from 'hamburger-react';
+import { useEffect, useState } from 'react';
+
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
+  const [shouldEnableBlur, toggleBlur] = useState(false);
+
+  const blurStyle = {
+    bg: 'rgba(50,50,50,0.1)',
+    backdropFilter: 'auto',
+    backdropBlur: '18px',
+    boxShadow: 'lg'
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 5) {
+        toggleBlur(true);
+      } else {
+        toggleBlur(false);
+      }
+    });
+
+    return () => {
+      window.removeEventListener('scroll', () => {});
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isOpen) {
+      toggleBlur(true);
+    } else {
+      toggleBlur(false);
+    }
+  }, [isOpen]);
 
   return (
     <Box
+      transition="all 0.3s cubic-bezier(.08,.52,.52,1)"
       pos="sticky"
       top={0}
       zIndex={3}
-      bg="rgba(50,50,50,0.1)"
-      backdropFilter="auto"
-      backdropBlur="15px"
-      boxShadow="lg"
+      {...(shouldEnableBlur && blurStyle)}
     >
       <Fade top>
         <Box mb={125}>
@@ -108,11 +138,7 @@ export default function Navbar() {
 
 const MobileNav = () => {
   return (
-    <Stack
-      p={4}
-      pb={10}
-      display={{ xl: 'none', base: 'flex' }}
-    >
+    <Stack p={4} pb={10} display={{ xl: 'none', base: 'flex' }}>
       {LINKS.map((navItem) => (
         <MobileNavItem key={navItem.name} {...navItem} />
       ))}

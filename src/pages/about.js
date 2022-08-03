@@ -1,4 +1,4 @@
-import { Box, Image, Text } from '@chakra-ui/react';
+import { Box, Image, Img, Text } from '@chakra-ui/react';
 import CustomHeading from '@components/CustomHeading';
 import Fade from 'react-reveal/Fade';
 import Zoom from 'react-reveal/Zoom';
@@ -16,7 +16,7 @@ export default function About() {
       </Fade>
       <Zoom>
         <Box my={20} minH={[100, 200, 350, 650]}>
-          <Image
+          <Img
             borderRadius="lg"
             src={
               'https://picsum.photos/1920/' +
