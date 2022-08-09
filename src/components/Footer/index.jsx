@@ -24,7 +24,6 @@ const ListHeader = ({ children, ...otherProps }) => {
   );
 };
 
-
 const SocialButton = ({ children, label, href }) => {
   return (
     <chakra.button
@@ -52,7 +51,7 @@ const SocialButton = ({ children, label, href }) => {
 export default function LargeWithAppLinksAndSocial() {
   return (
     <Box bg="#052345" color="teal.200">
-      <Container as={Stack} maxW={'9xl'} py={10} px={{base: 10, md: 25}}>
+      <Container as={Stack} maxW={'9xl'} py={10} px={{ base: 10, md: 25 }}>
         <SimpleGrid columns={{ base: 1, md: 2, lg: 2, xl: 4 }} spacing={10}>
           <Stack align={'flex-start'}>
             <ListHeader color="green.400">Hr Consultin & Co</ListHeader>
@@ -112,7 +111,12 @@ export default function LargeWithAppLinksAndSocial() {
                 variant="filled"
                 placeholder="Adresse mail"
               />
-              <Button size="lg" borderLeftRadius={0} colorScheme="green">
+              <Button
+                size="lg"
+                fontWeight="normal"
+                borderLeftRadius={0}
+                colorScheme="green"
+              >
                 S'abonner
               </Button>
             </Flex>

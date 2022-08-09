@@ -11,8 +11,8 @@ export default function SmallNewsCard({ news, ...otherProps }) {
         src={"https://picsum.photos/1920/" + Math.floor(Math.random() * 50 + 1080)}
         alt="news"
       />
-      <VStack maxW={240}>
-        <Text color="teal.200">{news.date}</Text>
+      <VStack maxW={240} alignItems="flex-start">
+        <Text color="teal.400">{news.date}</Text>
         <Text fontSize="md">{news.description}</Text>
       </VStack>
     </HStack>

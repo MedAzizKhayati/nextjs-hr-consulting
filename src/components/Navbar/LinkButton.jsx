@@ -6,7 +6,7 @@ export default function LinkButton({ title, href, ...otherProps }) {
     <Box
       position="relative"
       as="button"
-      mx="25px"   
+      mx="25px"
       lineHeight="1.2"
       py={1}
       transition="all 0.2s cubic-bezier(.08,.52,.52,1)"
@@ -28,14 +28,12 @@ export default function LinkButton({ title, href, ...otherProps }) {
         borderRadius: '2px',
         left: 0,
         bottom: 0,
-        // boxShadow: 'dark-lg',
         transition: 'all 0.2s cubic-bezier(.08,.52,.52,1)'
       }}
+      
       {...otherProps}
     >
-      <NextLink href={href}>
-        {title}
-      </NextLink>
+      <NextLink href={href}>{title}</NextLink>
     </Box>
   );
 }

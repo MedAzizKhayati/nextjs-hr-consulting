@@ -29,17 +29,19 @@ export default function Navbar() {
     boxShadow: 'lg'
   };
 
+  const handleScroll = () => {
+    if (window.scrollY > 5) {
+      toggleBlur(true);
+    } else {
+      toggleBlur(isOpen || false);
+    }
+  };
+
   useEffect(() => {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 5) {
-        toggleBlur(true);
-      } else {
-        toggleBlur(false);
-      }
-    });
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', () => {});
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -121,14 +123,14 @@ export default function Navbar() {
             <Flex display={{ base: 'flex', xl: 'none' }}>
               <IconButton
                 onClick={onToggle}
-                icon={<Hamburger />}
+                icon={<Hamburger toggled={isOpen} />}
                 aria-label={'Toggle Navigation'}
                 colorScheme="green"
               />
             </Flex>
           </Flex>
           <Collapse in={isOpen} animateOpacity>
-            <MobileNav />
+            <MobileNav onToggle={onToggle} />
           </Collapse>
         </Box>
       </Fade>
@@ -136,11 +138,11 @@ export default function Navbar() {
   );
 }
 
-const MobileNav = () => {
+const MobileNav = ({ onToggle }) => {
   return (
     <Stack p={4} pb={10} display={{ xl: 'none', base: 'flex' }}>
       {LINKS.map((navItem) => (
-        <MobileNavItem key={navItem.name} {...navItem} />
+        <MobileNavItem onClick={onToggle} key={navItem.name} {...navItem} />
       ))}
       <Center>
         <NextLink href="/send-resume">
@@ -151,6 +153,7 @@ const MobileNav = () => {
               transform: 'scale(1.02)',
               boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.5)'
             }}
+            onClick={onToggle}
           >
             Deposer un CV
           </Button>
@@ -160,9 +163,9 @@ const MobileNav = () => {
   );
 };
 
-const MobileNavItem = ({ name, href }) => {
+const MobileNavItem = ({ name, href, onClick, ...otherProps }) => {
   return (
-    <Stack spacing={4}>
+    <Stack spacing={4} {...otherProps}>
       <Flex
         py={2}
         href={href ?? '#'}
@@ -172,7 +175,7 @@ const MobileNavItem = ({ name, href }) => {
           textDecoration: 'none'
         }}
       >
-        <LinkButton title={name} href={href} key={name} />
+        <LinkButton title={name} href={href} key={name} onClick={onClick} />
       </Flex>
     </Stack>
   );
