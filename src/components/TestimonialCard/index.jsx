@@ -1,7 +1,6 @@
 import { StarIcon } from '@chakra-ui/icons';
 import { Box, Flex, Image, Text } from '@chakra-ui/react';
 import Zoom from 'react-reveal/Zoom';
-import Fade from 'react-reveal/Fade';
 
 export default function TestimonialCard({ testimonial, ...props }) {
   return (
@@ -31,7 +30,7 @@ export default function TestimonialCard({ testimonial, ...props }) {
 
       <Box flex={1}>
         <Zoom>
-          <Image src="“.png" mb={5} />
+          <Image src="commas.png" mb={5} />
           <Flex mb={5}>
             {Array(testimonial.rating)
               .fill(0)
