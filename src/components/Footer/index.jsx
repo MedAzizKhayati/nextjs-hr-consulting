@@ -4,12 +4,10 @@ import {
   Stack,
   SimpleGrid,
   Text,
-  Link,
   VisuallyHidden,
   chakra,
   useColorModeValue,
   Input,
-  HStack,
   Button,
   Flex
 } from '@chakra-ui/react';
@@ -50,7 +48,7 @@ const SocialButton = ({ children, label, href }) => {
 
 export default function LargeWithAppLinksAndSocial() {
   return (
-    <Box bg="#052345" color="teal.200">
+    <Box bg="#052345" color="teal.200" pos="relative">
       <Container as={Stack} maxW={'9xl'} py={10} px={{ base: 10, md: 25 }}>
         <SimpleGrid columns={{ base: 1, md: 2, lg: 2, xl: 4 }} spacing={10}>
           <Stack align={'flex-start'}>

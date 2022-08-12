@@ -6,8 +6,20 @@ import Zoom from 'react-reveal/Zoom';
 import NEWS from '@data/news';
 import NewsCard from '@components/NewsCard';
 import SmallNewsCard from '@components/SmallNewsCard';
+import { useEffect, useState } from 'react';
+import { getAllNews } from '@services/news.service';
 
 export default function NewsSection() {
+  const [news, setNews] = useState([]);
+  useEffect(() => {
+    getAllNews()
+      .then((news) => {
+        news.sort((a, b) => (a.title ? -1 : 1));
+        setNews(news);
+      })
+      .catch(console.error);
+  }, []);
+
   return (
     <Box px={[15, 20]}>
       <Flex justifyContent="space-between" mb={10}>
@@ -30,15 +42,15 @@ export default function NewsSection() {
         }}
         justifyContent="space-between"
       >
-        {NEWS.slice(0, 2).map((news, index) => (
+        {news.slice(0, 2).map((news, index) => (
           <Zoom key={index}>
-            <NewsCard {...{ news }} mb={10} />
+            <NewsCard {...{ news }} mb={10} h="450px" />
           </Zoom>
         ))}
-        <Fade right>
-          <Box mb={10}>
-            {NEWS.slice(2, 6).map((news, index) => (
-              <Box key={index}>
+        <Box mb={10}>
+          {news.slice(2, 6).map((news, index) => (
+            <Fade key={index} right>
+              <Box>
                 <SmallNewsCard key={index} {...{ news }} mb={5} mx={15} />
                 <Box
                   h="2px"
@@ -49,9 +61,9 @@ export default function NewsSection() {
                   borderRadius="full"
                 />
               </Box>
-            ))}
-          </Box>
-        </Fade>
+            </Fade>
+          ))}
+        </Box>
       </Flex>
     </Box>
   );
