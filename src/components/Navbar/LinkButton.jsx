@@ -16,7 +16,8 @@ export default function LinkButton({ title, href, ...otherProps }) {
       _hover={{
         color: 'green.400',
         _after: {
-          width: '100%'
+          width: '100%',
+          left: 0
         }
       }}
       _after={{
@@ -26,11 +27,10 @@ export default function LinkButton({ title, href, ...otherProps }) {
         background: 'green.400',
         position: 'absolute',
         borderRadius: '2px',
-        left: 0,
+        left: '50%',
         bottom: 0,
         transition: 'all 0.2s cubic-bezier(.08,.52,.52,1)'
       }}
-      
       {...otherProps}
     >
       <NextLink href={href}>{title}</NextLink>

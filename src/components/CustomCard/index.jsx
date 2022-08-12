@@ -1,13 +1,20 @@
 import { Box, Center, Heading, Text, Stack, Image } from '@chakra-ui/react';
+import { useEffect, useRef } from 'react';
 import Zoom from 'react-reveal/Zoom';
 
-export default function blogPostWithImage({ title }) {
+export default function blogPostWithImage({ title, description }) {
+  const zoomRef = useRef(null);
+  useEffect(() => {
+    zoomRef.current.querySelector('div').style.height = '100%';
+  }, []);
+
   return (
-    <Center py={6}>
+    <Center py={6} ref={zoomRef}>
       <Zoom>
         <Box
-          maxW={{ base: 300, md: '400px' }}
-          w="full"
+          w={{ base: 300, md: '400px' }}
+          // w="full"
+          h="100%"
           boxShadow="xl"
           bg="white"
           rounded="lg"
@@ -15,7 +22,7 @@ export default function blogPostWithImage({ title }) {
           overflow={'hidden'}
           transition="all 0.2s cubic-bezier(.08,.52,.52,1)"
           _hover={{
-            transform: 'scale(1.07)',
+            transform: 'scale(1.03)',
             boxShadow: 'dark-lg',
             cursor: 'pointer'
           }}
@@ -50,10 +57,11 @@ export default function blogPostWithImage({ title }) {
               {title}
             </Heading>
             <Text color={'gray.500'}>
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-              nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-              erat, sed diam voluptua. At vero eos et accusam et justo duo
-              dolores et ea rebum.
+              {description ||
+                'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam\
+              nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam\
+              erat, sed diam voluptua. At vero eos et accusam et justo duo\
+              dolores et ea rebum.'}
             </Text>
           </Stack>
         </Box>

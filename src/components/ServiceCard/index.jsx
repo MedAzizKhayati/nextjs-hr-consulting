@@ -1,8 +1,7 @@
 import {
   Button,
   Flex,
-  Heading,
-  Image,
+  Img as Image,
   SimpleGrid,
   Text
 } from '@chakra-ui/react';
