@@ -52,7 +52,7 @@ export default function LargeWithAppLinksAndSocial() {
       <Container as={Stack} maxW={'9xl'} py={10} px={{ base: 10, md: 25 }}>
         <SimpleGrid columns={{ base: 1, md: 2, lg: 2, xl: 4 }} spacing={10}>
           <Stack align={'flex-start'}>
-            <ListHeader color="green.400">Hr Consultin & Co</ListHeader>
+            <ListHeader color="green.400">Hr Consulting</ListHeader>
             <Text>
               Est un cabinet de recrutement, de formation, de conseil et de
               gestion des ressources humaines.
@@ -62,13 +62,12 @@ export default function LargeWithAppLinksAndSocial() {
           <Stack align={'flex-start'}>
             <ListHeader>Infomations</ListHeader>
             <Text>
-              ABIDJAN - Marcory 1er étage à droite lot 36 Avenue TSF en face de
-              la SIB Ste Thérèse
+              ABIDJAN -1676 Blue Spruce Lane
             </Text>
-            <Text>Tel: (+255) 20 00 09 47</Text>
-            <Text>Tel: (+255) 21 26 94 06</Text>
-            <Text>Tel: (+255) 02 91 62 90</Text>
-            <Text>E-mail: secretariat@hrconsultingco.ci</Text>
+            <Text>Tel: (+1) 410-340-3252</Text>
+            <Text>Tel: (+1) 240-203-3394</Text>
+            <Text>Tel: (+1) 410-340-3251</Text>
+            <Text>E-mail: test@admin.net</Text>
           </Stack>
 
           <Stack align={'flex-start'}>

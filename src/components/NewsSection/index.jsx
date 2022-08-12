@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Heading, SimpleGrid, Text } from '@chakra-ui/react';
+import { Box, Button, Flex, Heading } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import Fade from 'react-reveal/Fade';
 import Zoom from 'react-reveal/Zoom';
@@ -6,19 +6,10 @@ import Zoom from 'react-reveal/Zoom';
 import NEWS from '@data/news';
 import NewsCard from '@components/NewsCard';
 import SmallNewsCard from '@components/SmallNewsCard';
-import { useEffect, useState } from 'react';
-import { getAllNews } from '@services/news.service';
+import { useState } from 'react';
 
 export default function NewsSection() {
-  const [news, setNews] = useState([]);
-  useEffect(() => {
-    getAllNews()
-      .then((news) => {
-        news.sort((a, b) => (a.title ? -1 : 1));
-        setNews(news);
-      })
-      .catch(console.error);
-  }, []);
+  const [news, setNews] = useState(NEWS);
 
   return (
     <Box px={[15, 20]}>
