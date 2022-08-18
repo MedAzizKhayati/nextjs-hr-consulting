@@ -11,6 +11,8 @@
     "@chakra-ui/react": "1.8.8",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
+    "firebase": "^9.9.2",
+    "firebase-tools": "^11.6.0",
     "framer-motion": "^3.10.6",
     "graphql": "^16.5.0",
     "hamburger-react": "^2.5.0",
