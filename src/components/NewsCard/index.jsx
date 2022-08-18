@@ -28,10 +28,11 @@ export default function NewsCard({ news, ...otherProps }) {
           height={220}
           objectFit="cover"
           src={
+            news.image ||
             'https://picsum.photos/1920/' +
-            Math.floor(Math.random() * 50 + 1080)
+              Math.floor(Math.random() * 50 + 1080)
           }
-          alt="news"
+          alt={news.imageAlt || 'news'}
         />
       </Box>
       <Stack>

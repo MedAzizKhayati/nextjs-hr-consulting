@@ -1,7 +1,12 @@
 import { Button, Center, Flex, Heading } from '@chakra-ui/react';
 import Zoom from 'react-reveal/Zoom';
 
-export default function CustomForm({ title, children, ...otherProps }) {
+export default function CustomForm({
+  title,
+  children,
+  onSubmit = () => null,
+  ...otherProps
+}) {
   return (
     <Zoom>
       <Flex
@@ -21,7 +26,12 @@ export default function CustomForm({ title, children, ...otherProps }) {
         </Heading>
         {children}
         <Center>
-          <Button colorScheme="green" borderRadius="full" size="lg">
+          <Button
+            onClick={onSubmit}
+            colorScheme="green"
+            borderRadius="full"
+            size="lg"
+          >
             Envoyer
           </Button>
         </Center>

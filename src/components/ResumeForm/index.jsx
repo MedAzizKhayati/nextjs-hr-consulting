@@ -2,31 +2,92 @@ import { Stack, Text } from '@chakra-ui/react';
 import CustomForm from '@components/CustomForm';
 import FormInput from '@components/FormInput';
 import FormTextArea from '@components/FormTextArea';
+import axios from 'axios';
+import { useState } from 'react';
+import toBase64 from '@utils/toBase64';
+import { toast } from 'react-toastify';
 
 export default function ResumeForm() {
+  const [formData, setFormData] = useState({});
+
+  const sendResume = () => {
+    toast.promise(
+      new Promise((resolve, reject) => {
+        axios
+          .post('/api/send-resume', formData)
+          .then((res) => resolve(res))
+          .catch((err) => reject(err));
+      }),
+      {
+        pending: 'Envoi en cours...',
+        success: 'Votre CV a bien été envoyé !',
+        error: 'Une erreur est survenue...'
+      }
+    );
+  };
+
+  const handleChange = (e) => {
+    const { name, value, files } = e.target;
+    if (!files) {
+      setFormData({ ...formData, [name]: value });
+      return;
+    }
+
+    toBase64(files[0])
+      .then((base64) => {
+        setFormData({
+          ...formData,
+          file: {
+            filename: files[0].name,
+            path: base64
+          }
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
-    <CustomForm title="Formulaire d'envoie d'un CV">
+    <CustomForm
+      onChange={handleChange}
+      onSubmit={sendResume}
+      title="Formulaire d'envoie d'un CV"
+    >
       <Stack direction={['column', 'row']} mb={20} spacing={20}>
-        <FormInput placeholder="Nom" />
-        <FormInput placeholder="Prénom" />
+        <FormInput name="firstName" placeholder="Nom" />
+        <FormInput name="lastName" placeholder="Prénom" />
       </Stack>
       <Stack direction={['column', 'row']} mb={20} spacing={20}>
-        <FormInput type="number" placeholder="Numéro de télephone" />
-        <FormInput type="email" placeholder="E-mail" />
+        <FormInput
+          name="phonenumber"
+          type="number"
+          placeholder="Numéro de télephone"
+        />
+        <FormInput name="email" type="email" placeholder="E-mail" />
       </Stack>
-      <FormInput placeholder="Votre domaine d'étude" mb={20} />
-      <FormInput placeholder="Votre domaine de formation" mb={20} />
+      <FormInput
+        name="studyField"
+        placeholder="Votre domaine d'étude"
+        mb={20}
+      />
+      <FormInput
+        name="formationField"
+        placeholder="Votre domaine de formation"
+        mb={20}
+      />
       <Text fontWeight="bold" mb={1} color="green.400" opacity="0.7">
         Ajouter votre cv ici (pdf, doc, png)
       </Text>
       <FormInput
+        name="file"
         type="file"
         color="green.400"
         opacity="0.7"
         placeholder="Ajouter votre cv ici (pdf, doc, png)"
         mb={20}
       />
-      <FormTextArea placeholder="Message" />
+      <FormTextArea name="message" placeholder="Message" />
     </CustomForm>
   );
 }

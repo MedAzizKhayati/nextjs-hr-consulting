@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   Flex,
   Img as Image,
@@ -8,7 +9,12 @@ import {
 import CustomHeading from '@components/CustomHeading';
 import Fade from 'react-reveal/Fade';
 
-export default function ServiceCard({ title, reverse = false, ...otherProps }) {
+export default function ServiceCard({
+  image,
+  title,
+  reverse = false,
+  ...otherProps
+}) {
   return (
     <Fade right={!reverse} left={!!reverse}>
       <SimpleGrid
@@ -20,24 +26,41 @@ export default function ServiceCard({ title, reverse = false, ...otherProps }) {
       >
         <CustomHeading
           justifySelf="center"
-          fontSize="5xl"
+          size="xl"
+          textAlign="center"
+          width="auto"
           title={title}
           lineWidth={100}
           display={{ base: 'block', lg: 'none' }}
         />
-        <Flex
+        <Box
+          flex={1}
+          objectFit="cover"
+          overflow="hidden"
+          pos={'relative'}
+          rounded="lg"
+          alignItems="end"
+        >
+          <Image
+            margin="auto"
+            float={{ lg: reverse ? 'right' : 'left' }}
+            borderRadius={10}
+            fit="cover"
+            h={{ base: 300, md: 400 }}
+            src={
+              image ||
+              'https://picsum.photos/600/' +
+                Math.floor(Math.random() * 30 + 400)
+            }
+          />
+        </Box>
+        {/* <Flex
           flex={1}
           justifyContent={{ base: 'center', lg: 'flex-start' }}
           pos="relative"
         >
-          <Image
-            borderRadius={10}
-            src={
-              'https://picsum.photos/600/' +
-              Math.floor(Math.random() * 30 + 400)
-            }
-          />
-        </Flex>
+          
+        </Flex> */}
         <Flex
           h={400}
           flexDir="column"
@@ -47,8 +70,9 @@ export default function ServiceCard({ title, reverse = false, ...otherProps }) {
           order={{ lg: reverse ? -1 : 1 }}
         >
           <CustomHeading
-            fontSize="5xl"
+            fontSize="4xl"
             title={title}
+            width="auto"
             lineWidth={100}
             display={{ base: 'none', lg: 'block' }}
           />

@@ -1,11 +1,24 @@
-import { db } from './firestore-config';
-import { collection, getDocs } from 'firebase/firestore';
+import { gql } from '@apollo/client';
 
-export const getAllFormations = async () => {
-  const formationsCol = collection(db, 'formations');
-  const formationSnapshot = await getDocs(formationsCol);
-  return formationSnapshot?.docs.map((doc) => ({
-    ...doc.data(),
-    id: doc.id
-  }));
-};
+export const GET_FORMATIONS = gql`
+  query GetFormations {
+    posts(where: { categoryName: "formations" }) {
+      edges {
+        node {
+          id
+          slug
+          title
+          content
+          featuredImage {
+            node {
+              altText
+              sourceUrl
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+

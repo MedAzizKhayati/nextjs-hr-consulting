@@ -21,7 +21,7 @@ export default function ServicesSection() {
         px={10}
       >
         {HOME_SERVICES.map((service, index) => (
-          <SimpleCard key={index} title={service.title} />
+          <SimpleCard delay={index % 3 * 150} key={index} title={service.title} />
         ))}
       </SimpleGrid>
     </Flex>

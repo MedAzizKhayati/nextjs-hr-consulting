@@ -20,7 +20,7 @@ export default function StatisticsSection() {
         {STATISTICS_DATA.map((statistic, index) => (
           <VisibilitySensor key={index} partialVisibility>
             {({ isVisible }) => (
-              <Zoom>
+              <Zoom delay={index * 150}>
                 <Flex
                   p={20}
                   flexDir="column"

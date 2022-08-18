@@ -3,9 +3,14 @@ import { CalendarIcon } from '@chakra-ui/icons';
 import CustomHeading from '@components/CustomHeading';
 import Zoom from 'react-reveal/Zoom';
 
-export default function SimpleCard({ title, canHover = true, ...otherProps }) {
+export default function SimpleCard({
+  title,
+  delay = 0,
+  canHover = true,
+  ...otherProps
+}) {
   return (
-    <Zoom>
+    <Zoom delay={delay}>
       <Center {...otherProps}>
         <Flex
           _hover={

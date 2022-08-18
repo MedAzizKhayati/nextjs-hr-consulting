@@ -2,15 +2,20 @@ import { Box, Center, Heading, Text, Stack, Image } from '@chakra-ui/react';
 import { useEffect, useRef } from 'react';
 import Zoom from 'react-reveal/Zoom';
 
-export default function blogPostWithImage({ title, description }) {
+export default function BlogPostWithImage({
+  title,
+  description,
+  image,
+  imageAlt,
+  delay = 0
+}) {
   const zoomRef = useRef(null);
   useEffect(() => {
     zoomRef.current.querySelector('div').style.height = '100%';
   }, []);
-
   return (
     <Center py={6} ref={zoomRef}>
-      <Zoom>
+      <Zoom delay={delay}>
         <Box
           w={{ base: 300, md: '400px' }}
           // w="full"
@@ -37,10 +42,13 @@ export default function blogPostWithImage({ title, description }) {
             pos={'relative'}
           >
             <Image
+              fit="cover"
               src={
+                image ||
                 'https://picsum.photos/400/' +
-                Math.floor(Math.random() * 30 + 250)
+                  Math.floor(Math.random() * 30 + 250)
               }
+              alt={imageAlt || 'Image Formation'}
             />
           </Box>
           <Stack>

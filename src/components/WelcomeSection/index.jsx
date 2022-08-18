@@ -13,6 +13,7 @@ export default function () {
     >
       {WELCOME_SERVICES.map((service, index) => (
         <SimpleCard
+        delay={index * 150}
           key={index}
           title={service.title}
           transform={{ base: '', lg: 'translateY(-25px)' }}

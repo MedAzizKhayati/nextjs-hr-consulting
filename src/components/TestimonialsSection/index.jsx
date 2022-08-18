@@ -36,7 +36,7 @@ export default function TestimonialsSection() {
         }}
       >
         {testimonials.map((testimonial, index) => (
-          <SwiperSlide>
+          <SwiperSlide key={testimonial.fullName}>
             <TestimonialCard testimonial={testimonial} key={index} />
           </SwiperSlide>
         ))}

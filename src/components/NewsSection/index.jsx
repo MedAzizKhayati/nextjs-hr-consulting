@@ -2,23 +2,22 @@ import { Box, Button, Flex, Heading, SimpleGrid, Text } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import Fade from 'react-reveal/Fade';
 import Zoom from 'react-reveal/Zoom';
-
 import NEWS from '@data/news';
 import NewsCard from '@components/NewsCard';
 import SmallNewsCard from '@components/SmallNewsCard';
 import { useEffect, useState } from 'react';
-import { getAllNews } from '@services/news.service';
+import { useQuery } from '@apollo/client';
+import { GET_NEWS } from '@services/news.service';
+import { mapResults } from '@services/appolo-config';
 
 export default function NewsSection() {
   const [news, setNews] = useState([]);
+  const { data, error, loading } = useQuery(GET_NEWS);
   useEffect(() => {
-    getAllNews()
-      .then((news) => {
-        news.sort((a, b) => (a.title ? -1 : 1));
-        setNews(news);
-      })
-      .catch(console.error);
-  }, []);
+    if (loading) return;
+    if (error) return console.log('Error: ', error);
+    setNews(mapResults(data));
+  }, [loading]);
 
   return (
     <Box px={[15, 20]}>
