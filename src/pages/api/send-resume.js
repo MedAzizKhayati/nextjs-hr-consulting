@@ -1,27 +1,34 @@
 import { transporter } from './nodemailer.config';
+import resumeTemplate from './views/resume.template';
+import checkEntries from './checkEntries';
+import variableToName from '@utils/variableToName';
 require('dotenv').config();
+
+const keys = [
+  'firstName',
+  'lastName',
+  'email',
+  'phonenumber',
+  'studyField',
+  'formationField',
+  'file'
+];
 
 export default function (req, res) {
   const { body } = req;
+
+  const missingField = checkEntries(body, keys);
+  if (missingField) {
+    return res
+      .status(400)
+      .send({ error: `${variableToName(missingField)} is required!` });
+  }
+
   const mailData = {
     to: process.env.SMTP_DEFAULT_TO,
     from: body?.email,
     subject: '[ Application Form - Resume ]',
-    html: `
-      <div style="padding: 15px;">
-        <h1 style="text-align:center;">${body?.firstName} ${body?.lastName} </h1>
-        <h4>Phone Number: ${body?.phonenumber}</h4>
-        <br>
-        <ul>
-            <li><strong>Email:</strong> ${body?.email}</li>
-            <li><strong>Field Of Study:</strong> ${body?.studyField}</li>
-            <li><strong>Formation Domain:</strong> ${body?.formationField}</li>
-        </ul>
-        <br>
-        <h4>Message:</h4>
-        <p>${body?.message}</p>
-      </div>
-      `,
+    html: resumeTemplate(body),
     attachments: [body?.file]
   };
 

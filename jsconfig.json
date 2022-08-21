@@ -9,7 +9,7 @@
       "@public/*": ["public/*"],
       "@styles/*": ["src/styles/*"],
       "@services/*": ["src/services/*"],
-      "@views/*": ["src/views/*"]
+      "@views/*": ["src/pages/api/views/*"]
     }
   }
 }

@@ -3,28 +3,16 @@ import CustomForm from '@components/CustomForm';
 import FormInput from '@components/FormInput';
 import FormTextArea from '@components/FormTextArea';
 import { useState } from 'react';
-import { toast } from 'react-toastify';
 import axios from 'axios';
+import handleHttpRequest from '@utils/handleHttpRequest';
 
 export default function ContactForm(props) {
   const [formData, setFormData] = useState({});
 
   const sendContact = () => {
-    toast.promise(
-      new Promise((resolve, reject) => {
-        axios
-          .post('/api/contact', formData)
-          .then((res) => resolve(res))
-          .catch((err) => {
-            console.log(err);
-            reject(err);
-          });
-      }),
-      {
-        pending: 'Envoi en cours...',
-        success: 'Votre CV a bien été envoyé !',
-        error: 'Une erreur est survenue...'
-      }
+    handleHttpRequest(
+      axios.post('/api/contact', formData),
+      'Votre message a bien été envoyé'
     );
   };
 

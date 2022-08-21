@@ -1,4 +1,5 @@
 import { Box, Button, Flex, Heading } from '@chakra-ui/react';
+import Zoom from 'react-reveal/Zoom';
 import NextLink from 'next/link';
 
 export default function ResumeSection() {
@@ -21,28 +22,30 @@ export default function ResumeSection() {
         alignItems="center"
         justifyContent="center"
       >
-        <Heading
-          color="blue.900"
-          fontSize={['2xl', '2xl', '2xl', '4xl']}
-          pr={{ lg: 20 }}
-          pb={25}
-          textAlign={{ md: 'center', base: 'center' }}
-        >
-          Pour Plus De Renseignement veuillez Déposer votre CV ici
-        </Heading>
-        <NextLink href="/send-resume">
-          <Button
-            borderRadius="full"
-            size="lg"
-            fontSize={['md', 'xl', 'xl', '2xl']}
-            fontWeight="normal"
-            p={['15', '19', '25', '35']}
-            color="white"
-            colorScheme="green"
+        <Zoom>
+          <Heading
+            color="blue.900"
+            fontSize={['2xl', '2xl', '2xl', '4xl']}
+            pr={{ lg: 20 }}
+            pb={25}
+            textAlign={{ md: 'center', base: 'center' }}
           >
-            Deposer un CV
-          </Button>
-        </NextLink>
+            Pour Plus De Renseignement veuillez Déposer votre CV ici
+          </Heading>
+          <NextLink href="/send-resume">
+            <Button
+              borderRadius="full"
+              size="lg"
+              fontSize={['md', 'xl', 'xl', '2xl']}
+              fontWeight="normal"
+              p={['15', '19', '25', '35']}
+              color="white"
+              colorScheme="green"
+            >
+              Deposer un CV
+            </Button>
+          </NextLink>
+        </Zoom>
       </Flex>
     </Flex>
   );

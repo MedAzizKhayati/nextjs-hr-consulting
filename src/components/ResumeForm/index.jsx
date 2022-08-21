@@ -6,23 +6,16 @@ import axios from 'axios';
 import { useState } from 'react';
 import toBase64 from '@utils/toBase64';
 import { toast } from 'react-toastify';
+import handleHttpRequest from '@utils/handleHttpRequest';
 
 export default function ResumeForm() {
   const [formData, setFormData] = useState({});
 
   const sendResume = () => {
-    toast.promise(
-      new Promise((resolve, reject) => {
-        axios
-          .post('/api/send-resume', formData)
-          .then((res) => resolve(res))
-          .catch((err) => reject(err));
-      }),
-      {
-        pending: 'Envoi en cours...',
-        success: 'Votre CV a bien été envoyé !',
-        error: 'Une erreur est survenue...'
-      }
+    handleHttpRequest(
+      axios.post('/api/send-resume', formData),
+      'Votre CV a bien été envoyé',
+      'Envoi en cours...'
     );
   };
 

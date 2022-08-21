@@ -37,15 +37,17 @@ export default function WhyChooseUsSection() {
         top={-100}
         zIndex={-1}
       />
-      <Image
-        src="/roadmap.png"
-        zIndex={-1}
-        height="auto"
-        width={{
-          lg: '850px',
-          xl: '1000px'
-        }}
-      />
+      <Fade right>
+        <Image
+          src="/roadmap.png"
+          zIndex={-1}
+          height="auto"
+          width={{
+            lg: '850px',
+            xl: '1000px'
+          }}
+        />
+      </Fade>
     </Flex>
   );
 }

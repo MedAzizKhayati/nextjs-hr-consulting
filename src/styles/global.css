@@ -32,7 +32,7 @@ body {
 }
 
 .loading-bar {
-    animation: loading cubic-bezier(0.6, -0.28, 0.735, 0.045) 0.3s;
+    animation: loading ease-in-out 0.3s;
 }
 
 @keyframes loading {

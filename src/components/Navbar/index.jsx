@@ -23,7 +23,7 @@ export default function Navbar() {
   const [shouldEnableBlur, toggleBlur] = useState(false);
 
   const blurStyle = {
-    bg: 'rgba(50,50,50,0.1)',
+    bg: 'rgba(255,255,255,0.2)',
     backdropFilter: 'auto',
     backdropBlur: '18px',
     boxShadow: 'lg'
@@ -38,6 +38,7 @@ export default function Navbar() {
   };
 
   useEffect(() => {
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
 
     return () => {
@@ -112,7 +113,6 @@ export default function Navbar() {
                   p={1}
                   _hover={{
                     transform: 'scale(1.5)',
-                    cursor: 'pointer',
                     boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)'
                   }}
                   icon={<AiOutlineUser fontSize="3rem" />}

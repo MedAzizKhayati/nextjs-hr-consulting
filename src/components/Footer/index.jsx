@@ -12,7 +12,12 @@ import {
   Flex
 } from '@chakra-ui/react';
 import LinkButton from '@components/Navbar/LinkButton';
+import handleHttpRequest from '@utils/handleHttpRequest';
+import validateEmail from '@utils/validateEmail';
+import axios from 'axios';
+import { useState } from 'react';
 import { FaTwitter, FaYoutube, FaInstagram } from 'react-icons/fa';
+import { toast } from 'react-toastify';
 
 const ListHeader = ({ children, ...otherProps }) => {
   return (
@@ -47,6 +52,17 @@ const SocialButton = ({ children, label, href }) => {
 };
 
 export default function LargeWithAppLinksAndSocial() {
+  const [email, setEmail] = useState('');
+  const subscribeToNewsletter = () => {
+    if (!validateEmail(email))
+      return toast.warning('Veuillez entrer une adresse e-mail');
+    handleHttpRequest(
+      axios.post('/api/subscribe', {
+        email
+      }),
+      'Vous êtes bien inscrit à la newsletter'
+    );
+  };
   return (
     <Box bg="#052345" color="teal.200" pos="relative">
       <Container as={Stack} maxW={'9xl'} py={10} px={{ base: 10, md: 25 }}>
@@ -108,12 +124,14 @@ export default function LargeWithAppLinksAndSocial() {
                 type="email"
                 variant="filled"
                 placeholder="Adresse mail"
+                onChange={(e) => setEmail(e.target.value)}
               />
               <Button
                 size="lg"
                 fontWeight="normal"
                 borderLeftRadius={0}
                 colorScheme="green"
+                onClick={subscribeToNewsletter}
               >
                 S'abonner
               </Button>

@@ -16,7 +16,8 @@ export default function News({ news_ }) {
         {news_.map((formation, index) => (
           <ServiceCard
             key={index}
-            reverse={index % 2}
+            reverse={1}
+            consult={false}
             {...formation}
           />
         ))}

@@ -10,7 +10,7 @@ import ResumeSection from '@components/ResumeSection';
 
 export default function Home() {
   return (
-    <Box>
+    <Box mt={-20}>
       <HeroSection />
 
       <WelcomeSection />

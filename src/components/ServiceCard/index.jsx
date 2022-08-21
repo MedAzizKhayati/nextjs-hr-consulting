@@ -13,6 +13,7 @@ export default function ServiceCard({
   image,
   title,
   reverse = false,
+  consult = true,
   ...otherProps
 }) {
   return (
@@ -54,13 +55,6 @@ export default function ServiceCard({
             }
           />
         </Box>
-        {/* <Flex
-          flex={1}
-          justifyContent={{ base: 'center', lg: 'flex-start' }}
-          pos="relative"
-        >
-          
-        </Flex> */}
         <Flex
           h={400}
           flexDir="column"
@@ -73,7 +67,7 @@ export default function ServiceCard({
             fontSize="4xl"
             title={title}
             width="auto"
-            lineWidth={100}
+            lineWidth={40}
             display={{ base: 'none', lg: 'block' }}
           />
           <Text mb={10} fontSize={{ base: 'xl', md: '2xl' }}>
@@ -82,9 +76,16 @@ export default function ServiceCard({
             erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
             et ea rebum.
           </Text>
-          <Button fontSize="4xl" p="10" borderRadius="full" colorScheme="green">
-            Consulter
-          </Button>
+          {consult && (
+            <Button
+              fontSize="4xl"
+              p="10"
+              borderRadius="full"
+              colorScheme="green"
+            >
+              Consulter
+            </Button>
+          )}
         </Flex>
       </SimpleGrid>
     </Fade>

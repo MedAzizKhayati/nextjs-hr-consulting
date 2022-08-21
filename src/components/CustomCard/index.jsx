@@ -17,8 +17,7 @@ export default function BlogPostWithImage({
     <Center py={6} ref={zoomRef}>
       <Zoom delay={delay}>
         <Box
-          w={{ base: 300, md: '400px' }}
-          // w="full"
+          maxW={{ base: 300, md: '400px' }}
           h="100%"
           boxShadow="xl"
           bg="white"
