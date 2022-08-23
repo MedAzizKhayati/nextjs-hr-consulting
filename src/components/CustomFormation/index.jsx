@@ -16,11 +16,7 @@ export default function CustomFormation(props) {
         <FormInput type="email" placeholder="E-mail" />
       </Stack>
       <FormInput placeholder="Entreprise" mb={20} />
-      <FormSelect placeholder="Formation Souhaitée">
-        <option value="option1">Option 1</option>
-        <option value="option2">Option 2</option>
-        <option value="option3">Option 3</option>
-      </FormSelect>
+      <FormInput placeholder="Formation Souhaitée (Titre explicatoire)" mb={20} />
       <FormTextArea placeholder="Message" />
     </CustomForm>
   );

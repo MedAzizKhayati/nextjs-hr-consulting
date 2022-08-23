@@ -1,6 +1,7 @@
 import { Flex, Heading, SimpleGrid } from '@chakra-ui/react';
 import SimpleCard from '@components/SimpleCard';
 import HOME_SERVICES from '@data/home-services';
+import NextLink from 'next/link';
 
 export default function ServicesSection() {
   return (
@@ -21,7 +22,9 @@ export default function ServicesSection() {
         px={10}
       >
         {HOME_SERVICES.map((service, index) => (
-          <SimpleCard delay={index % 3 * 150} key={index} title={service.title} />
+          <NextLink key={index} href={service.href}>
+            <SimpleCard delay={(index % 3) * 150} key={index} {...service} />
+          </NextLink>
         ))}
       </SimpleGrid>
     </Flex>

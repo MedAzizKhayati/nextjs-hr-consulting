@@ -15,7 +15,7 @@ export default function SmallNewsCard({ news, ...otherProps }) {
         alt={news.imageAlt || 'news'}
       />
       <VStack maxW={240} alignItems="flex-start">
-        <Text color="teal.400">{news.date.toLocaleDateString()}</Text>
+        <Text color="teal.400">{new Date(news.date).toLocaleDateString()}</Text>
         <Text fontSize="sm">{news.description}</Text>
       </VStack>
     </HStack>

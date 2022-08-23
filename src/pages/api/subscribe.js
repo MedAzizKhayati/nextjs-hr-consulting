@@ -6,8 +6,9 @@ const CLIENT_KEY = process.env.NEWSLETTER_CLIENT_KEY;
 const CLIENT_SECRET = process.env.NEWSLETTER_CLIENT_SECRET;
 
 export default function (req, res) {
-  const { email } = req.body;
-  if (!email) return res.status(400).json({ error: 'Address e-mail est obligatoire!' });
+  const { email } = req?.body || {};
+  if (!email)
+    return res.status(400).json({ error: 'Address e-mail est obligatoire!' });
   axios
     .post(
       API_URL + '/subscribers',
@@ -26,7 +27,7 @@ export default function (req, res) {
       res.status(200).send(response.data);
     })
     .catch((error) => {
-      console.log(error.response.data);
+      console.log(error?.response?.data || error?.response || error);
       res.status(500).send(error);
     });
 }

@@ -1,23 +1,11 @@
-import { Box, Button, Flex, Heading, SimpleGrid, Text } from '@chakra-ui/react';
+import { Box, Button, Flex, Heading } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import Fade from 'react-reveal/Fade';
 import Zoom from 'react-reveal/Zoom';
-import NEWS from '@data/news';
 import NewsCard from '@components/NewsCard';
 import SmallNewsCard from '@components/SmallNewsCard';
-import { useEffect, useState } from 'react';
-import { useQuery } from '@apollo/client';
-import { GET_NEWS } from '@services/news.service';
-import { mapResults } from '@services/appolo-config';
 
-export default function NewsSection() {
-  const [news, setNews] = useState([]);
-  const { data, error, loading } = useQuery(GET_NEWS);
-  useEffect(() => {
-    if (loading) return;
-    if (error) return console.log('Error: ', error);
-    setNews(mapResults(data));
-  }, [loading]);
+export default function NewsSection({news}) {
 
   return (
     <Box px={[15, 20]}>
@@ -41,13 +29,13 @@ export default function NewsSection() {
         }}
         justifyContent="space-between"
       >
-        {news.slice(0, 2).map((news, index) => (
+        {news?.slice(0, 2).map((news, index) => (
           <Zoom key={index}>
             <NewsCard {...{ news }} mb={10} h="450px" />
           </Zoom>
         ))}
         <Box mb={10}>
-          {news.slice(2, 6).map((news, index) => (
+          {news?.slice(2, 6).map((news, index) => (
             <Fade key={index} right>
               <Box>
                 <SmallNewsCard key={index} {...{ news }} mb={5} mx={15} />
@@ -67,3 +55,4 @@ export default function NewsSection() {
     </Box>
   );
 }
+

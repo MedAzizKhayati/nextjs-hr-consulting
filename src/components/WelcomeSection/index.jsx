@@ -15,7 +15,7 @@ export default function () {
         <SimpleCard
         delay={index * 150}
           key={index}
-          title={service.title}
+          {...service}
           transform={{ base: '', lg: 'translateY(-25px)' }}
           canHover={false}
         />

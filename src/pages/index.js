@@ -7,8 +7,11 @@ import TestimonialsSection from '@components/TestimonialsSection';
 import NewsSection from '@components/NewsSection';
 import StatisticsSection from '@components/StatisticsSection';
 import ResumeSection from '@components/ResumeSection';
+import { appoloClient, mapResultsSsr } from '@services/appolo-config';
+import { GET_TESTIMONIALS } from '@services/testimonilas.service';
+import { GET_NEWS } from '@services/news.service';
 
-export default function Home() {
+export default function Home({ testimonials, news }) {
   return (
     <Box mt={-20}>
       <HeroSection />
@@ -19,9 +22,9 @@ export default function Home() {
 
       <ServicesSection />
 
-      <TestimonialsSection />
+      <TestimonialsSection testimonials={testimonials} />
 
-      <NewsSection />
+      <NewsSection news={news} />
 
       <StatisticsSection />
 
@@ -29,3 +32,24 @@ export default function Home() {
     </Box>
   );
 }
+
+export const getServerSideProps = async () => {
+  const testimonials = mapResultsSsr(
+    await appoloClient.query({
+      query: GET_TESTIMONIALS
+    })
+  );
+
+  const news = mapResultsSsr(
+    await appoloClient.query({
+      query: GET_NEWS
+    })
+  );
+
+  return {
+    props: {
+      testimonials,
+      news
+    }
+  };
+};

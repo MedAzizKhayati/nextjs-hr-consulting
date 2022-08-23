@@ -2,16 +2,23 @@ import { Flex, Text, Box, Center, Heading } from '@chakra-ui/react';
 import { CalendarIcon } from '@chakra-ui/icons';
 import CustomHeading from '@components/CustomHeading';
 import Zoom from 'react-reveal/Zoom';
+import { useEffect, useRef } from 'react';
 
 export default function SimpleCard({
   title,
+  description,
   delay = 0,
   canHover = true,
   ...otherProps
 }) {
+  const zoomRef = useRef(null);
+  useEffect(() => {
+    zoomRef.current.querySelector('div').style.height = '100%';
+  }, []);
+
   return (
-    <Zoom delay={delay}>
-      <Center {...otherProps}>
+    <Center {...otherProps} ref={zoomRef}>
+      <Zoom delay={delay}>
         <Flex
           _hover={
             canHover && {
@@ -27,6 +34,8 @@ export default function SimpleCard({
           p={15}
           bg="white"
           borderRadius="lg"
+          h="100%"
+          pos="relative"
         >
           <CalendarIcon color="green.400" w={20} h={20} my={25} opacity={0.9} />
           <Heading
@@ -38,12 +47,13 @@ export default function SimpleCard({
             {title}
           </Heading>
           <Text mb={20} fontSize="2xl" color="blue.900">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum
-            dolor sit amet, consectetur adipiscing elit.
+            {description ??
+              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum\
+              dolor sit amet, consectetur adipiscing elit.'}
           </Text>
-          <Box w="100%" bg="green.400" h="4px" borderRadius="full" />
+          <Box w="93%" bg="green.400" pos="absolute" bottom="15px" h="4px" borderRadius="full" />
         </Flex>
-      </Center>
-    </Zoom>
+      </Zoom>
+    </Center>
   );
 }

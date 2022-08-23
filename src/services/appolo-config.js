@@ -1,7 +1,7 @@
 import { ApolloClient, InMemoryCache } from '@apollo/client';
 import innerText from 'innertext';
 
-export const API_URL = 'http://wp.redlionandcompany.com/graphql';
+export const API_URL = 'http://api.hrconsultingco.ci/graphql';
 
 export const appoloClient = new ApolloClient({
   uri: API_URL,

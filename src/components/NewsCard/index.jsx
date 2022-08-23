@@ -44,7 +44,7 @@ export default function NewsCard({ news, ...otherProps }) {
           w="unset"
         />
         <Text color={'blue.600'} fontWeight="medium">
-          {news.date.toLocaleDateString()}
+          {new Date(news.date).toLocaleDateString()}
         </Text>
         <Text color={'teal.400'}>{news.description}</Text>
       </Stack>
