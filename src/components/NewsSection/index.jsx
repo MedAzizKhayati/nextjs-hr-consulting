@@ -38,7 +38,7 @@ export default function NewsSection({ news }) {
           <NewsCard key={index} {...{ news }} mb={10} h="450px" />
         ))}
         <Box mb={10}>
-          {news?.slice(2, 6).map((news, index) => (
+          {news?.slice(2).map((news, index) => (
             <Fade key={index} right>
               <Box>
                 <SmallNewsCard key={index} {...{ news }} mb={5} mx={15} />

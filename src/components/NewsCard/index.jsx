@@ -36,7 +36,7 @@ export default function NewsCard({ news, delay, ...otherProps }) {
               width={400}
               height={220}
               objectFit="cover"
-              src={news.image || 'https://picsum.photos/1920/1081'}
+              src={news.image || 'https://picsum.photos/720/570'}
               alt={news.imageAlt || 'news'}
             />
           </Box>

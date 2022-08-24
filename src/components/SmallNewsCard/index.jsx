@@ -8,7 +8,7 @@ export default function SmallNewsCard({ news, ...otherProps }) {
         height={100}
         objectFit="cover"
         borderRadius="lg"
-        src={news.image || 'https://picsum.photos/1920/1080'}
+        src={news.image || 'https://picsum.photos/720/571'}
         alt={news.imageAlt || 'news'}
       />
       <VStack maxW={240} alignItems="flex-start">
