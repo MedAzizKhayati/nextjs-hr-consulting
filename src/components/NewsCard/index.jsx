@@ -1,4 +1,4 @@
-import { Box, Center, Text, Stack, Image } from '@chakra-ui/react';
+import { Box, Center, Text, Stack, Img as Image } from '@chakra-ui/react';
 import CustomHeading from '@components/CustomHeading';
 import { useEffect, useRef } from 'react';
 import Zoom from 'react-reveal/Zoom';
