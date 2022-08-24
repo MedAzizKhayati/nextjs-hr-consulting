@@ -7,7 +7,7 @@ import SmallNewsCard from '@components/SmallNewsCard';
 
 export default function NewsSection({ news }) {
   return (
-    <Box px={[15, 20]}>
+    <Box px={[15, 20]} mb={20}>
       <Flex justifyContent="space-between" mb={10}>
         <Heading color="blue.900" fontSize="4xl">
           ACTUALITÉS

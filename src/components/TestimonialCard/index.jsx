@@ -31,7 +31,7 @@ export default function TestimonialCard({ testimonial, ...props }) {
       </Flex>
 
       <Box flex={1}>
-        <Image src="“.png" mb={5} />
+        <Image src="commas.png" mb={5} />
         <Flex mb={5}>
           {Array(testimonial.testimonial.rating)
             .fill(0)
