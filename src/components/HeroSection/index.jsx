@@ -4,7 +4,7 @@ import {
   Flex,
   Heading,
   HStack,
-  Image,
+  Img as Image,
   Text
 } from '@chakra-ui/react';
 import Fade from 'react-reveal/Fade';
