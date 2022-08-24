@@ -25,7 +25,11 @@ export default function InstructorCard({ instructor, ...otherProps }) {
         mb={10}
         {...otherProps}
       >
-        <Avatar mb={25} size="2xl" src="https://bit.ly/dan-abramov" />
+        <Avatar
+          mb={25}
+          size="2xl"
+          src={instructor?.image || 'https://bit.ly/dan-abramov'}
+        />
         <Heading textAlign="center" color="#666666" fontSize="lg">
           {instructor?.fullName || 'Dan Abrahmov'}
         </Heading>

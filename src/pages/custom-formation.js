@@ -4,9 +4,9 @@ import MessageBackground from '@components/MessageBackground';
 
 export default function CustomFormationPage() {
   return (
-    <Center>
+    <Center pos="relative">
       <MessageBackground />
-      <CustomFormation />
+      <CustomFormation mb={40} />
     </Center>
   );
 }

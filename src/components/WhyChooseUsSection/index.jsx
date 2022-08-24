@@ -15,8 +15,7 @@ export default function WhyChooseUsSection() {
             POURQUOI NOUS CHOISIR ?
           </Heading>
           <Text fontSize="2xl" mb={25} color="blue.900">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-            eget nisl velit.
+            Nos valeur, atouts, experiences,...constituent de veritables
           </Text>
           <NextLink href="/contact">
             <Button
@@ -24,6 +23,7 @@ export default function WhyChooseUsSection() {
               colorScheme="green"
               p={25}
               borderRadius="sm"
+              rounded="full"
             >
               CONTACTER
             </Button>

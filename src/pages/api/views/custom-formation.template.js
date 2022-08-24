@@ -5,8 +5,8 @@ export default (body) => `
         <br>
         <ul>
             <li><strong>Email:</strong> ${body?.email}</li>
-            <li><strong>Domaine d'étude:</strong> ${body?.studyField}</li>
-            <li><strong>Domaine de formation:</strong> ${body?.formationField}</li>
+            <li><strong>Entreprise:</strong> ${body?.company}</li>
+            <li><strong>Formation Souhaitée:</strong> ${body?.customFormation}</li>
         </ul>
         <br>
         <h4>Message:</h4>

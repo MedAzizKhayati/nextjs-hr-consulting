@@ -1,8 +1,13 @@
-import { Flex, Heading, SimpleGrid, Text } from '@chakra-ui/react';
+import { Flex, Heading, Icon, SimpleGrid, Text } from '@chakra-ui/react';
 import Zoom from 'react-reveal/Zoom';
 import CountUp from 'react-countup';
 import VisibilitySensor from 'react-visibility-sensor';
 import STATISTICS_DATA from '@data/statistics';
+import { FiUsers } from 'react-icons/fi';
+import { BsBank } from 'react-icons/bs';
+import { GiTeacher } from 'react-icons/gi';
+
+const icons = [FiUsers, BsBank, GiTeacher];
 
 export default function StatisticsSection() {
   return (
@@ -32,6 +37,7 @@ export default function StatisticsSection() {
                   h={350}
                   maxW={450}
                 >
+                  <Icon as={icons[index % icons.length]} color="blue.900" w={70} h={70}  />
                   <Heading fontSize="5xl" color="blue.900">
                     {isVisible ? (
                       <CountUp

@@ -1,13 +1,14 @@
 import { Flex, Text, Box, Center, Heading } from '@chakra-ui/react';
 import { CalendarIcon } from '@chakra-ui/icons';
-import CustomHeading from '@components/CustomHeading';
 import Zoom from 'react-reveal/Zoom';
 import { useEffect, useRef } from 'react';
+import { Icon } from '@chakra-ui/react';
 
 export default function SimpleCard({
   title,
   description,
   delay = 0,
+  icon,
   canHover = true,
   ...otherProps
 }) {
@@ -37,7 +38,15 @@ export default function SimpleCard({
           h="100%"
           pos="relative"
         >
-          <CalendarIcon color="green.400" w={20} h={20} my={25} opacity={0.9} />
+          <Icon
+            as={icon || CalendarIcon}
+            color="green.400"
+            w={20}
+            h={20}
+            my={25}
+            opacity={0.9}
+          />
+
           <Heading
             fontSize="2xl"
             mb={15}
@@ -51,7 +60,14 @@ export default function SimpleCard({
               'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum\
               dolor sit amet, consectetur adipiscing elit.'}
           </Text>
-          <Box w="93%" bg="green.400" pos="absolute" bottom="15px" h="4px" borderRadius="full" />
+          <Box
+            w="93%"
+            bg="green.400"
+            pos="absolute"
+            bottom="15px"
+            h="4px"
+            borderRadius="full"
+          />
         </Flex>
       </Zoom>
     </Center>

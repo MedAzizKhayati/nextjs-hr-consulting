@@ -34,17 +34,17 @@ export default function Home({ testimonials, news }) {
 }
 
 export const getServerSideProps = async () => {
-  const testimonials = mapResultsSsr(
-    await appoloClient.query({
-      query: GET_TESTIMONIALS
-    })
-  );
-
-  const news = mapResultsSsr(
-    await appoloClient.query({
-      query: GET_NEWS
-    })
-  );
+  
+  const [testimonials, news] = (
+    await Promise.all([
+      appoloClient.query({
+        query: GET_TESTIMONIALS
+      }),
+      appoloClient.query({
+        query: GET_NEWS
+      })
+    ])
+  ).map(mapResultsSsr);
 
   return {
     props: {

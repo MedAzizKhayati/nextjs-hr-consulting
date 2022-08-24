@@ -13,7 +13,7 @@ export default function Services() {
 
       <Box>
         {SERVICES.map((formation, index) => (
-          <ServiceCard key={index} reverse={index % 2} title={formation.title} />
+          <ServiceCard key={index} reverse={index % 2} {...formation} />
         ))}
       </Box>
     </Box>

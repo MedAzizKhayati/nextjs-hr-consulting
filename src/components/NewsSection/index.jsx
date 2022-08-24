@@ -5,8 +5,7 @@ import Zoom from 'react-reveal/Zoom';
 import NewsCard from '@components/NewsCard';
 import SmallNewsCard from '@components/SmallNewsCard';
 
-export default function NewsSection({news}) {
-
+export default function NewsSection({ news }) {
   return (
     <Box px={[15, 20]}>
       <Flex justifyContent="space-between" mb={10}>
@@ -14,7 +13,13 @@ export default function NewsSection({news}) {
           ACTUALITÉS
         </Heading>
         <NextLink href="/news">
-          <Button size="lg" fontSize="xl" colorScheme="green" borderRadius="sm">
+          <Button
+            rounded="full"
+            size="lg"
+            fontSize="xl"
+            colorScheme="green"
+            borderRadius="sm"
+          >
             Voir Plus
           </Button>
         </NextLink>
@@ -30,9 +35,7 @@ export default function NewsSection({news}) {
         justifyContent="space-between"
       >
         {news?.slice(0, 2).map((news, index) => (
-          <Zoom key={index}>
-            <NewsCard {...{ news }} mb={10} h="450px" />
-          </Zoom>
+          <NewsCard key={index} {...{ news }} mb={10} h="450px" />
         ))}
         <Box mb={10}>
           {news?.slice(2, 6).map((news, index) => (
@@ -55,4 +58,3 @@ export default function NewsSection({news}) {
     </Box>
   );
 }
-

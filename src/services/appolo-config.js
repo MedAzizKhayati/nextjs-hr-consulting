@@ -20,7 +20,7 @@ export const mapResults = (data) =>
 export const mapResultsSsr = ({ data }) =>
   data?.posts?.edges?.map(({ node }) => ({
     ...node,
-    description: innerText(node?.content),
+    description: innerText(node?.content || ''),
     image: node?.featuredImage?.node?.sourceUrl || null,
     imageAlt: node?.featuredImage?.node?.altText || null
   })) || [];

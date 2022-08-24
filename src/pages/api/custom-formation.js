@@ -1,5 +1,5 @@
 import { transporter } from './nodemailer.config';
-import resumeTemplate from './views/resume.template';
+import fomationTemplate from './views/custom-formation.template';
 import checkEntries from './checkEntries';
 import variableToName from '@utils/variableToName';
 require('dotenv').config();
@@ -9,9 +9,8 @@ const keys = [
   'lastName',
   'email',
   'phonenumber',
-  'studyField',
-  'formationField',
-  'file'
+  'customFormation',
+  'company'
 ];
 
 export default function (req, res) {
@@ -27,9 +26,8 @@ export default function (req, res) {
   const mailData = {
     to: process.env.SMTP_DEFAULT_TO,
     from: body?.email,
-    subject: '[ Application Form - CV ]',
-    html: resumeTemplate(body),
-    attachments: [body?.file]
+    subject: '[ Application Form - Formation Sur Mesure ]',
+    html: fomationTemplate(body)
   };
 
   console.log('Sending Email...');
@@ -42,11 +40,3 @@ export default function (req, res) {
     res.status(200).send(info);
   });
 }
-
-export const config = {
-  api: {
-    bodyParser: {
-      sizeLimit: '8mb'
-    }
-  }
-};

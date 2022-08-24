@@ -8,15 +8,14 @@ export default function SmallNewsCard({ news, ...otherProps }) {
         height={100}
         objectFit="cover"
         borderRadius="lg"
-        src={
-          news.image ||
-          'https://picsum.photos/1920/' + Math.floor(Math.random() * 50 + 1080)
-        }
+        src={news.image || 'https://picsum.photos/1920/1080'}
         alt={news.imageAlt || 'news'}
       />
       <VStack maxW={240} alignItems="flex-start">
         <Text color="teal.400">{new Date(news.date).toLocaleDateString()}</Text>
-        <Text fontSize="sm">{news.description}</Text>
+        <Text noOfLines={3} fontSize="sm">
+          {news.description}
+        </Text>
       </VStack>
     </HStack>
   );

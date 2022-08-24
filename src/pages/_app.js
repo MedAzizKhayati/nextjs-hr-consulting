@@ -21,11 +21,11 @@ export default function App({ Component, pageProps }) {
       <ChakraProvider theme={DefaultTheme}>
         <Box id="__main">
           <Head />
-          <Loading />
           <Navbar />
           <Component {...pageProps} />
           <Footer />
         </Box>
+        <Loading />
         <ToastContainer
           position="bottom-right"
           autoClose={5000}

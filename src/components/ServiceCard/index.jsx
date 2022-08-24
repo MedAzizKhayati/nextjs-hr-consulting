@@ -8,12 +8,14 @@ import {
 } from '@chakra-ui/react';
 import CustomHeading from '@components/CustomHeading';
 import Fade from 'react-reveal/Fade';
+import NextLink from 'next/link';
 
 export default function ServiceCard({
   image,
   title,
   reverse = false,
-  consult = true,
+  href,
+  description,
   ...otherProps
 }) {
   return (
@@ -48,11 +50,8 @@ export default function ServiceCard({
             borderRadius={10}
             fit="cover"
             h={{ base: 300, md: 400 }}
-            src={
-              image ||
-              'https://picsum.photos/600/' +
-                Math.floor(Math.random() * 30 + 400)
-            }
+            src={image || 'https://picsum.photos/600/400'}
+            alt={title}
           />
         </Box>
         <Flex
@@ -69,22 +68,27 @@ export default function ServiceCard({
             width="auto"
             lineWidth={40}
             display={{ base: 'none', lg: 'block' }}
+            mb={10}
           />
-          <Text mb={10} fontSize={{ base: 'xl', md: '2xl' }}>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+          <Text noOfLines={6} mb={10} fontSize={{ base: 'xl', md: '2xl' }}>
+            {description ??
+              `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
             nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
             erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-            et ea rebum.
+            et ea rebum.`}
           </Text>
-          {consult && (
-            <Button
-              fontSize="4xl"
-              p="10"
-              borderRadius="full"
-              colorScheme="green"
-            >
-              Consulter
-            </Button>
+          {href && (
+            <NextLink href={href}>
+              <Button
+                fontSize="xl"
+                px="8"
+                py="7"
+                borderRadius="full"
+                colorScheme="green"
+              >
+                Consulter
+              </Button>
+            </NextLink>
           )}
         </Flex>
       </SimpleGrid>

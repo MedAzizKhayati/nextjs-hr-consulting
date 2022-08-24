@@ -1,33 +1,54 @@
-import { Box } from '@chakra-ui/react';
+import { Box, SimpleGrid, useBreakpointValue } from '@chakra-ui/react';
 import CustomHeading from '@components/CustomHeading';
-import SERVICES from '@data/services';
 import Fade from 'react-reveal/Fade';
+import Zoom from 'react-reveal/Zoom';
 import ServiceCard from '@components/ServiceCard';
 import { GET_NEWS } from '@services/news.service';
 import { appoloClient, mapResultsSsr } from '@services/appolo-config';
+import NewsCard from '@components/NewsCard';
 
-export default function News({ news_ }) {
+export default function News({ news }) {
+  const delayMod = useBreakpointValue(
+    {
+      base: 1,
+      md: 2,
+      lg: 2,
+      xl: 4
+    },
+    {
+      fallback: 1
+    }
+  );
+
   return (
     <Box px={10}>
       <Fade left>
-        <CustomHeading title={'News'} mb={20} />
+        <CustomHeading title={'Actualités'} mb={20} />
       </Fade>
-      <Box>
-        {news_.map((formation, index) => (
-          <ServiceCard
-            key={index}
-            reverse={1}
-            consult={false}
-            {...formation}
+      <SimpleGrid
+        columns={{
+          base: 1,
+          md: 2,
+          lg: 2,
+          xl: 4
+        }}
+        spacing={10}
+        mb={20}
+      >
+        {news.map((news, index) => (
+          <NewsCard
+            delay={(index % delayMod) * 150}
+            key={news.id}
+            news={news}
           />
         ))}
-      </Box>
+      </SimpleGrid>
     </Box>
   );
 }
 
 export const getServerSideProps = async () => {
-  const news_ = mapResultsSsr(
+  const news = mapResultsSsr(
     await appoloClient.query({
       query: GET_NEWS
     })
@@ -35,7 +56,7 @@ export const getServerSideProps = async () => {
 
   return {
     props: {
-      news_
+      news
     }
   };
 };

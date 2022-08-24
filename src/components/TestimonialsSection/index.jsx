@@ -19,7 +19,7 @@ export default function TestimonialsSection({ testimonials }) {
       <Heading color="blue.900" size="3xl" textAlign="center">
         TÉMOIGNAGES
       </Heading>
-      <Heading color="blue.600" size="sm" textAlign="center">
+      <Heading mb={10} color="blue.600" size="sm" textAlign="center">
         97% DE NOS CLIENTS SONT SATISFAITS
       </Heading>
       <Fade left>
