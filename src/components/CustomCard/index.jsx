@@ -40,6 +40,7 @@ export default function BlogPostWithImage({
         >
           <Box
             maxH="250"
+            minH="190"
             objectFit="cover"
             overflow="hidden"
             mt={-6}
