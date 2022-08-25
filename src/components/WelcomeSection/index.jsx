@@ -13,7 +13,7 @@ export default function () {
     //   px={10}
     //   mb={40}
     // >
-    <Flex justifyContent="center" gap={5} flexWrap="wrap">
+    <Flex justifyContent="center" gap={5} flexWrap="wrap" mb={20}>
       {WELCOME_SERVICES.map((service, index) => (
         <SimpleCard
           delay={index * 150}

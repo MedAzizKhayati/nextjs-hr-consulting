@@ -37,7 +37,7 @@ export default function ServicesSection() {
         my={10}
         px={10}
       > */}
-      <Flex justifyContent="center" gap={5} flexWrap="wrap">
+      <Flex justifyContent="center" gap={5} flexWrap="wrap" mb={20}>
         {HOME_SERVICES.map((service, index) => (
           <NextLink key={index} href={service.href}>
             <SimpleCard

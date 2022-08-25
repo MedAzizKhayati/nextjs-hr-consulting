@@ -70,7 +70,7 @@ export default function Formations({ formations_: formations }) {
         }}
         spacing={10}
       > */}
-      <Flex justifyContent="center" gap={10} flexWrap="wrap">
+      <Flex justifyContent="center" gap={10} flexWrap="wrap" mb={20}>
         {formations.map((formation, index) => (
           <CustomCard
             delay={(index % delayMod) * 150}
