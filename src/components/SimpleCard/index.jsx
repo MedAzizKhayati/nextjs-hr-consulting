@@ -25,13 +25,13 @@ export default function SimpleCard({
             canHover && {
               boxShadow: 'dark-lg',
               cursor: 'pointer',
-              transform: 'scale(1.05)'
+              transform: 'scale(1.03)'
             }
           }
           transition="all 0.2s cubic-bezier(.08,.52,.52,1)"
           boxShadow="lg"
           flexDir="column"
-          maxW={500}
+          maxW={450}
           p={15}
           bg="white"
           borderRadius="lg"

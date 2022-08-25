@@ -1,4 +1,11 @@
-import { Box, Center, Heading, Text, Stack, Image } from '@chakra-ui/react';
+import {
+  Box,
+  Center,
+  Heading,
+  Text,
+  Stack,
+  Img as Image
+} from '@chakra-ui/react';
 import { useEffect, useRef } from 'react';
 import Zoom from 'react-reveal/Zoom';
 
@@ -17,7 +24,7 @@ export default function BlogPostWithImage({
     <Center py={6} ref={zoomRef}>
       <Zoom delay={delay}>
         <Box
-          maxW={{ base: 300, md: '400px' }}
+          maxW="400px"
           h="100%"
           boxShadow="xl"
           bg="white"
@@ -32,7 +39,7 @@ export default function BlogPostWithImage({
           }}
         >
           <Box
-            h={{ base: 150, md: 250 }}
+            maxH="250"
             objectFit="cover"
             overflow="hidden"
             mt={-6}
@@ -51,19 +58,10 @@ export default function BlogPostWithImage({
             />
           </Box>
           <Stack>
-            <Text
-              color={'green.500'}
-              textTransform={'uppercase'}
-              fontWeight={800}
-              fontSize={'sm'}
-              letterSpacing={1.1}
-            >
-              Offre
-            </Text>
-            <Heading fontSize={'2xl'} fontFamily={'body'} textAlign="center">
+            <Heading color="blue.900" fontSize={'xl'} fontFamily={'body'} textAlign="center">
               {title}
             </Heading>
-            <Text color={'gray.500'}>
+            <Text noOfLines={5} color={'gray.500'}>
               {description ||
                 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam\
               nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam\

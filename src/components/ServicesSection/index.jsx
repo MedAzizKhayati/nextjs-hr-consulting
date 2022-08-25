@@ -31,12 +31,13 @@ export default function ServicesSection() {
         NOS SERVICES
       </Heading>
 
-      <SimpleGrid
+      {/* <SimpleGrid
         minChildWidth={['250px', '400px', '450px']}
         spacing={10}
         my={10}
         px={10}
-      >
+      > */}
+      <Flex justifyContent="center" gap={5} flexWrap="wrap">
         {HOME_SERVICES.map((service, index) => (
           <NextLink key={index} href={service.href}>
             <SimpleCard
@@ -47,7 +48,7 @@ export default function ServicesSection() {
             />
           </NextLink>
         ))}
-      </SimpleGrid>
+      </Flex>
     </Flex>
   );
 }

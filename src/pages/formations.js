@@ -62,7 +62,7 @@ export default function Formations({ formations_: formations }) {
           </VStack>
         </Flex>
       </Fade>
-      <SimpleGrid
+      {/* <SimpleGrid
         columns={{
           base: 1,
           md: 2,
@@ -70,7 +70,8 @@ export default function Formations({ formations_: formations }) {
           xl: 4
         }}
         spacing={10}
-      >
+      > */}
+      <Flex justifyContent="center" gap={10} flexWrap="wrap">
         {formations.map((formation, index) => (
           <CustomCard
             delay={(index % delayMod) * 150}
@@ -78,7 +79,7 @@ export default function Formations({ formations_: formations }) {
             {...formation}
           />
         ))}
-      </SimpleGrid>
+      </Flex>
     </Box>
   );
 }

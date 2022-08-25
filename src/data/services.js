@@ -8,7 +8,7 @@ export default [
   },
   {
     title: 'Recrutement',
-    href: '/recrutement',
+    href: '/send-resume',
     description:
       'HR CONSULTING & CO conseille et accompagne les entreprises dans la sélection et l’acquisition de nouvelles compétences tels que cadres dirigeants et spécialistes. ',
     image: 'https://hrconsultingco.ci/img/service/recrutement.jpg'
