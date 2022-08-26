@@ -25,7 +25,7 @@ export default function OrderFormation({formationTitle, ...props}) {
     <CustomForm
       onChange={handleChange}
       onSubmit={sendContact}
-      title="Inscription"
+      title="Demande De Devis"
       {...props}
     >
       <Stack direction={['column', 'row']} mb={[10, 20]} spacing={[10, 20]}>
