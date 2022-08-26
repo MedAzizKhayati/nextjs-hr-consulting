@@ -10,7 +10,7 @@ export default function LinkButton({ title, href, ...otherProps }) {
       lineHeight="1.2"
       py={1}
       transition="all 0.2s cubic-bezier(.08,.52,.52,1)"
-      fontSize="18px"
+      fontSize="16px"
       fontWeight="semibold"
       color="#4b4f56"
       _hover={{

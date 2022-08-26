@@ -4,7 +4,7 @@ export default function CustomHeading({title, lineWidth = 70, ...otherProps}) {
   return (
     <Heading
         color="blue.900"
-        size="4xl"
+        fontSize={['4xl', '4xl', '5xl', '6xl']}
         pos='relative'
         width='max-content'
         py={2}

@@ -21,22 +21,15 @@ const icons = [
 
 export default function ServicesSection() {
   return (
-    <Flex flexDir="column" my={40}>
+    <Flex flexDir="column" my={[10, 40]}>
       <Heading
         fontSize={{ base: '5xl', md: '6xl', lg: '7xl' }}
         color="blue.900"
         textAlign="center"
-        my={40}
+        my={[20, 40]}
       >
         NOS SERVICES
       </Heading>
-
-      {/* <SimpleGrid
-        minChildWidth={['250px', '400px', '450px']}
-        spacing={10}
-        my={10}
-        px={10}
-      > */}
       <Flex px={5} justifyContent="center" gap={5} flexWrap="wrap" mb={20}>
         {HOME_SERVICES.map((service, index) => (
           <NextLink key={index} href={service.href}>

@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Img, SimpleGrid, Text } from '@chakra-ui/react';
+import { Box, Button, Flex, Img, Text } from '@chakra-ui/react';
 import CustomHeading from '@components/CustomHeading';
 import Fade from 'react-reveal/Fade';
 import Zoom from 'react-reveal/Zoom';
@@ -11,15 +11,23 @@ export default function About() {
         <CustomHeading
           title={'A propos'}
           lineWidth={30}
-          my={20}
+          my={[5, 20]}
           fontSize={{ base: '5xl', md: '7xl' }}
         />
       </Fade>
-      <Flex flexDir={["column-reverse", "column-reverse", 'column-reverse', "row"]} alignItems="center" gap={20}>
-        <Box maxW={["unset", "unset", 'unset', "50%"]}>
+      <Flex
+        flexDir={['column-reverse', 'column-reverse', 'column-reverse', 'row']}
+        alignItems="center"
+        gap={[10, 20]}
+      >
+        <Box maxW={['unset', 'unset', 'unset', '50%']}>
           <Fade left>
-            <CustomHeading title="HR CONSULTING & CO" fontSize="4xl" mb={10} />
-            <Text textAlign="justify" fontSize={{ base: 'lg', md: '2xl' }} mb={20}>
+            <CustomHeading title="HR CONSULTING & CO" fontSize="3xl" mb={10}/>
+            <Text
+              textAlign="justify"
+              fontSize={{ base: 'lg', md: '2xl' }}
+              mb={20}
+            >
               est un cabinet de recrutement, de formation, de conseil et de
               gestion des ressources humaines. Notre objectif, donner aux hommes
               la possibilité d'exprimeret d'investir leurs potentiels au service

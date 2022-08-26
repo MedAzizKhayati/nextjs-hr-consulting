@@ -24,7 +24,7 @@ export default function ServiceCard({
         columns={[1, 1, 1, 2]}
         spacing={10}
         color="teal.900"
-        my={40}
+        my={[10, 20]}
         {...otherProps}
       >
         <CustomHeading
@@ -38,8 +38,6 @@ export default function ServiceCard({
         />
         <Box
           flex={1}
-          objectFit="cover"
-          overflow="hidden"
           pos={'relative'}
           rounded="lg"
           alignItems="end"
@@ -49,7 +47,8 @@ export default function ServiceCard({
             float={{ lg: reverse ? 'right' : 'left' }}
             borderRadius={10}
             fit="cover"
-            h={{ base: 300, md: 400 }}
+            // h={{ base: 300, md: 400 }}
+            // w="auto"
             src={image || 'https://picsum.photos/600/400'}
             alt={title}
           />
@@ -70,7 +69,7 @@ export default function ServiceCard({
             display={{ base: 'none', lg: 'block' }}
             mb={10}
           />
-          <Text noOfLines={6} mb={10} fontSize={{ base: 'xl', md: '2xl' }}>
+          <Text textAlign="justify" noOfLines={7} mb={10} fontSize={{ base: 'xl', md: 'xl' }}>
             {description ??
               `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
             nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam

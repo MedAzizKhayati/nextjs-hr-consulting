@@ -8,14 +8,12 @@ export default function Services() {
   return (
     <Box px={10}>
       <Fade left>
-        <CustomHeading title={'Services'} mb={20} />
+        <CustomHeading title={'Services'} mb={10} />
       </Fade>
 
-      <Box>
-        {SERVICES.map((formation, index) => (
-          <ServiceCard key={index} reverse={index % 2} {...formation} />
-        ))}
-      </Box>
+      {SERVICES.map((formation, index) => (
+        <ServiceCard key={index} reverse={index % 2} {...formation} />
+      ))}
     </Box>
   );
 }

@@ -28,11 +28,11 @@ export default function CustomFormation(props) {
       title="Formation sur-mesure"
       {...props}
     >
-      <Stack direction={['column', 'row']} mb={20} spacing={20}>
+      <Stack direction={['column', 'row']} mb={[10, 20]} spacing={[10, 20]}>
         <FormInput name="firstName" placeholder="Nom" />
         <FormInput name="lastName" placeholder="Prénom" />
       </Stack>
-      <Stack direction={['column', 'row']} mb={20} spacing={20}>
+      <Stack direction={['column', 'row']} mb={[10, 20]} spacing={[10, 20]}>
         <FormInput
           name="phonenumber"
           type="number"
@@ -40,11 +40,11 @@ export default function CustomFormation(props) {
         />
         <FormInput name="email" type="email" placeholder="E-mail" />
       </Stack>
-      <FormInput name="company" placeholder="Entreprise (SELF si particulier)" mb={20} />
+      <FormInput name="company" placeholder="Entreprise (SELF si particulier)" mb={[10, 20]} />
       <FormInput
         name="customFormation"
         placeholder="Formation Souhaitée (Titre de la formation)"
-        mb={20}
+        mb={[10, 20]}
       />
       <FormTextArea placeholder="Message" />
     </CustomForm>

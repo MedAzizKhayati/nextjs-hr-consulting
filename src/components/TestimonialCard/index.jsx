@@ -39,7 +39,7 @@ export default function TestimonialCard({ testimonial, ...props }) {
               <StarIcon fontSize="4xl" color="green.400" key={index} />
             ))}
         </Flex>
-        <Text fontSize="2xl" color="blue.900" fontWeight="bold" mb={20}>
+        <Text textAlign="justify" fontSize="2xl" color="blue.900" fontWeight="bold" mb={20}>
           {testimonial.description}
         </Text>
         <Text fontSize="3xl" fontWeight="bold">

@@ -75,20 +75,10 @@ export default function LargeWithAppLinksAndSocial() {
             </Text>
           </Stack>
 
-          <Stack align={'flex-start'}>
-            <ListHeader>Infomations</ListHeader>
-            <Text>
-              ABIDJAN - Marcory 1er étage à droite lot 36 Avenue TSF en face de
-              la SIB Ste Thérèse
-            </Text>
-            <Text>Tel: (+255) 20 00 09 47</Text>
-            <Text>Tel: (+255) 21 26 94 06</Text>
-            <Text>Tel: (+255) 02 91 62 90</Text>
-            <Text>E-mail: secretariat@hrconsultingco.ci</Text>
-          </Stack>
+          
 
           <Stack align={'flex-start'}>
-            <ListHeader>Acceuil</ListHeader>
+            <ListHeader>Liens Pratiques</ListHeader>
             <LinkButton
               href="about"
               title="A propos"
@@ -116,7 +106,19 @@ export default function LargeWithAppLinksAndSocial() {
           </Stack>
 
           <Stack align={'flex-start'}>
-            <ListHeader>Rejoindre Notre Newsletter</ListHeader>
+            <ListHeader>Informations</ListHeader>
+            <Text>
+              ABIDJAN - Marcory 1er étage à droite lot 36 Avenue TSF en face de
+              la SIB Ste Thérèse
+            </Text>
+            <Text>Tel: (+255) 20 00 09 47</Text>
+            <Text>Tel: (+255) 21 26 94 06</Text>
+            <Text>Tel: (+255) 02 91 62 90</Text>
+            <Text>E-mail: secretariat@hrconsultingco.ci</Text>
+          </Stack>
+
+          <Stack align={'flex-start'}>
+            <ListHeader>Newsletter</ListHeader>
             <Flex>
               <Input
                 size="lg"
@@ -154,7 +156,7 @@ export default function LargeWithAppLinksAndSocial() {
           justify={{ md: 'space-between' }}
           align={{ md: 'center' }}
         >
-          <Text>© 2022 Hr Consulting. All rights reserved</Text>
+          <Text>© 2022 Hr Consulting & Co. All rights reserved</Text>
           <Stack direction={'row'} spacing={6}>
             <SocialButton label={'Twitter'} href={'#'}>
               <FaTwitter />

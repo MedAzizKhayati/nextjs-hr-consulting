@@ -47,11 +47,11 @@ export default function ResumeForm() {
       onSubmit={sendResume}
       title="Formulaire d'envoie d'un CV"
     >
-      <Stack direction={['column', 'row']} mb={20} spacing={20}>
+      <Stack direction={['column', 'row']} mb={[10, 20]} spacing={[10, 20]}>
         <FormInput name="firstName" placeholder="Nom" />
         <FormInput name="lastName" placeholder="Prénom" />
       </Stack>
-      <Stack direction={['column', 'row']} mb={20} spacing={20}>
+      <Stack direction={['column', 'row']} mb={[10, 20]} spacing={[10, 20]}>
         <FormInput
           name="phonenumber"
           type="number"
@@ -62,12 +62,12 @@ export default function ResumeForm() {
       <FormInput
         name="studyField"
         placeholder="Votre domaine d'étude"
-        mb={20}
+        mb={[10, 20]}
       />
       <FormInput
         name="formationField"
         placeholder="Votre domaine de formation"
-        mb={20}
+        mb={[10, 20]}
       />
       <Text fontWeight="bold" mb={1} color="green.400" opacity="0.7">
         Ajouter votre cv ici (pdf, doc, png)
@@ -78,7 +78,7 @@ export default function ResumeForm() {
         color="green.400"
         opacity="0.7"
         placeholder="Ajouter votre cv ici (pdf, doc, png)"
-        mb={20}
+        mb={[10, 20]}
       />
       <FormTextArea name="message" placeholder="Message" />
     </CustomForm>

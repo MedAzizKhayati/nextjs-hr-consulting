@@ -6,13 +6,13 @@ import { useState } from 'react';
 import axios from 'axios';
 import handleHttpRequest from '@utils/handleHttpRequest';
 
-export default function ContactForm(props) {
+export default function OrderFormation({formationTitle, ...props}) {
   const [formData, setFormData] = useState({});
 
   const sendContact = () => {
     handleHttpRequest(
-      axios.post('/api/contact', formData),
-      'Votre message a bien été envoyé'
+      axios.post('/api/order-formation', {...formData, formationTitle}),
+      'Votre requète a bien été envoyé! On vous contactera dans les plus brefs délais.'
     );
   };
 
@@ -25,7 +25,7 @@ export default function ContactForm(props) {
     <CustomForm
       onChange={handleChange}
       onSubmit={sendContact}
-      title="Contact"
+      title="Inscription"
       {...props}
     >
       <Stack direction={['column', 'row']} mb={[10, 20]} spacing={[10, 20]}>

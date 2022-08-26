@@ -1,40 +1,27 @@
-import { Box, Button, Flex, Heading, Image, Text } from '@chakra-ui/react';
+import { Box, Button, Center, Flex, Heading, Image, Text } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import Fade from 'react-reveal/Fade';
 
 export default function WhyChooseUsSection() {
   return (
-    <Flex
+    <Center
       px={10}
       pos="relative"
-      flexDir={{ base: 'column', md: 'column', lg: 'row', xl: 'row' }}
+      flexDir="column"
     >
-      <Fade left>
-        <Box maxW="415px">
-          <Heading color="blue.900" mb={30} fontWeight="medium">
-            POURQUOI NOUS CHOISIR ?
-          </Heading>
-          <Text fontSize="2xl" mb={25} color="blue.900">
-            Nos valeur, atouts, experiences,...constituent de veritables
-          </Text>
-          <NextLink href="/contact">
-            <Button
-              fontWeight="light"
-              colorScheme="green"
-              p={25}
-              borderRadius="sm"
-              rounded="full"
-            >
-              CONTACTER
-            </Button>
-          </NextLink>
-        </Box>
-      </Fade>
+      <Heading
+        fontSize={{ base: '5xl', md: '6xl', lg: '7xl' }}
+        color="blue.900"
+        textAlign="center"
+        my={40}
+      >
+        POURQUOI NOUS CHOISIR?
+      </Heading>
       <Image
         src="/full-circle.png"
         pos="absolute"
         right={-175}
-        top={-100}
+        bottom={0}
         zIndex={-1}
       />
       <Fade right>
@@ -48,6 +35,6 @@ export default function WhyChooseUsSection() {
           }}
         />
       </Fade>
-    </Flex>
+    </Center>
   );
 }

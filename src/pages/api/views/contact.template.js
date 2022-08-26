@@ -4,6 +4,6 @@ export default (body) => `
         <h4>Phone Number: ${body?.phonenumber}</h4>
         <br>
         <h4>Message:</h4>
-        <p>${body?.message}</p>
+        <p>${body?.message || "Pas de message"}</p>
     </div>
 `;

@@ -13,7 +13,7 @@ import { GET_NEWS } from '@services/news.service';
 
 export default function Home({ testimonials, news }) {
   return (
-    <Box mt={-20}>
+    <Box mt={[0, -20]}>
       <HeroSection />
 
       <WelcomeSection />

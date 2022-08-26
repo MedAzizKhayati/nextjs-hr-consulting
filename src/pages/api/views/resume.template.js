@@ -10,6 +10,6 @@ export default (body) => `
         </ul>
         <br>
         <h4>Message:</h4>
-        <p>${body?.message}</p>
+        <p>${body?.message || "Pas de message"}</p>
     </div>
 `;

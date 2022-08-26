@@ -63,7 +63,7 @@ export default function Navbar() {
       {...(shouldEnableBlur && blurStyle)}
     >
       <Fade top>
-        <Box mb={125}>
+        <Box mb={[25,125]}>
           <Flex h={85} px={50} align="center" justifyContent="space-between">
             <Flex
               boxSize={{ base: '75px', md: '85px' }}
@@ -95,17 +95,17 @@ export default function Navbar() {
                 <Button
                   colorScheme="green"
                   borderRadius={30}
-                  mr={20}
+                  // mr={20}
                   ml={15}
                   _hover={{
                     transform: 'scale(1.05)',
                     boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.5)'
                   }}
                 >
-                  Deposer un CV
+                  Déposer un CV
                 </Button>
               </NextLink>
-              <Box>
+              {/* <Box>
                 <Avatar
                   bg="none"
                   color="green.600"
@@ -117,7 +117,7 @@ export default function Navbar() {
                   }}
                   icon={<AiOutlineUser fontSize="3rem" />}
                 />
-              </Box>
+              </Box> */}
             </Flex>
 
             <Flex display={{ base: 'flex', xl: 'none' }}>

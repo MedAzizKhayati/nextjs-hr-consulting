@@ -1,6 +1,6 @@
 export default [
   {
-    name: 'Acceuil',
+    name: 'Accueil',
     href: '/'
   },
   {
@@ -16,8 +16,15 @@ export default [
     href: '/formations'
   },
   {
+    name: 'Nos Formateurs',
+    href: '/instructors'
+  },
+  {
     name: 'Actualités',
     href: '/news'
+  },
+  {
+    name: 'Contact',
+    href: '/contact'
   }
 ];
-    

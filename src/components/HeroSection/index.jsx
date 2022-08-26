@@ -20,7 +20,7 @@ export default function HeroSection() {
         base: 'center'
       }}
       px={{ lg: 55, base: '5px' }}
-      my={[20, 20, 20, 0]}
+      my={[10, 20, 20, 0]}
     >
       <Fade left>
         <Box color="blue.900">
@@ -35,7 +35,7 @@ export default function HeroSection() {
             fontSize={['4xl', '5xl', '6xl']}
             my={30}
           >
-            Agrement agence <br /> Emploi jeunes
+            Agrément agence <br /> Emploi jeunes
           </Heading>
           <HStack>
             <NextLink href="/contact">

@@ -21,4 +21,19 @@ export const GET_FORMATIONS = gql`
   }
 `;
 
-
+export const GET_FORMATION = gql`
+  query GetFormation($id: ID!) {
+    post(id: $id) {
+      id
+      slug
+      title
+      content
+      featuredImage {
+        node {
+          altText
+          sourceUrl
+        }
+      }
+    }
+  }
+`;

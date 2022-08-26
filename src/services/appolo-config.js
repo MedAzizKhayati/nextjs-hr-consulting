@@ -24,3 +24,13 @@ export const mapResultsSsr = ({ data }) =>
     image: node?.featuredImage?.node?.sourceUrl || null,
     imageAlt: node?.featuredImage?.node?.altText || null
   })) || [];
+
+export const mapResultSsr = ({ data }) =>
+  data?.post
+    ? {
+        ...data?.post,
+        description: innerText(data?.post?.content || ''),
+        image: data?.post?.featuredImage?.node?.sourceUrl || null,
+        imageAlt: data?.post?.featuredImage?.node?.altText || null
+      }
+    : null;
