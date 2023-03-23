@@ -1,4 +1,4 @@
-#Hr-consulting
+# Hr-consulting
 Hr-consulting is a template application built with Next.js and Chakra UI that can be used as a starting point for HR consulting websites.
 
 Getting Started
