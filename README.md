@@ -3,7 +3,7 @@ Hr-consulting is a template application built with Next.js and Chakra UI that ca
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-![image](https://user-images.githubusercontent.com/68187294/227241232-76ea82bb-7114-4c62-891d-21f682199406.png)
+![screenshot](https://user-images.githubusercontent.com/68187294/227241232-76ea82bb-7114-4c62-891d-21f682199406.png)
 
 ## Getting Started
 
